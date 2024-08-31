@@ -1,0 +1,11 @@
+export NIX_LD=$(nix eval --impure --raw --expr 'let pkgs = import <nixpkgs> {}; NIX_LD = pkgs.lib.fileContents "${pkgs.stdenv.cc}/nix-support/dynamic-linker"; in NIX_LD')
+
+# Keybindings
+# History
+bindkey '^p' history-search-backward
+bindkey '^n' history-search-forward
+bindkey '^[w' kill-region
+
+# Shell integrations
+eval "$(fzf --zsh)"
+eval "$(zoxide init --cmd cd zsh)"
