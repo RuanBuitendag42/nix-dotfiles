@@ -144,6 +144,7 @@
     zsh-powerlevel10k
     vim
     wget
+    gh
     git
     lazygit
     neofetch
