@@ -8,7 +8,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     nixvim = {
-      url = "github:nix-community/nixvim";
+      url = "github:RuanBuitendag42/nixvim";
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };
@@ -21,7 +21,9 @@
       homeConfigurations.ruanb = home-manager.lib.homeManagerConfiguration {
         inherit pkgs;
         modules = [ ./ruanb/home.nix ];
-	extraSpecialArgs = { inherit inputs; };
+	extraSpecialArgs = {
+	  inherit inputs;
+	};
       };
       nixosConfigurations.nixos = nixpkgs.lib.nixosSystem {
         specialArgs = { inherit system; inherit inputs; };

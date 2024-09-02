@@ -1,5 +1,21 @@
 {
   "nodes": {
+    "comment-box-nvim": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1706926985,
+        "narHash": "sha256-fbuN2L8M6AZRvIiKy9ECLgf3Uya6g5znfDaCgVF3XKA=",
+        "owner": "LudoPinelli",
+        "repo": "comment-box.nvim",
+        "rev": "06bb771690bc9df0763d14769b779062d8f12bc5",
+        "type": "github"
+      },
+      "original": {
+        "owner": "LudoPinelli",
+        "repo": "comment-box.nvim",
+        "type": "github"
+      }
+    },
     "devshell": {
       "inputs": {
         "nixpkgs": [
@@ -133,11 +149,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1724435763,
-        "narHash": "sha256-UNky3lJNGQtUEXT2OY8gMxejakSWPTfWKvpFkpFlAfM=",
+        "lastModified": 1725180166,
+        "narHash": "sha256-fzssXuGR/mCeGbzM1ExaTqDz7QDGta3WA4jJsZyRruo=",
         "owner": "nix-community",
         "repo": "home-manager",
-        "rev": "c2cd2a52e02f1dfa1c88f95abeb89298d46023be",
+        "rev": "471e3eb0a114265bcd62d11d58ba8d3421ee68eb",
         "type": "github"
       },
       "original": {
@@ -190,11 +206,11 @@
     },
     "nixpkgs": {
       "locked": {
-        "lastModified": 1724224976,
-        "narHash": "sha256-Z/ELQhrSd7bMzTO8r7NZgi9g5emh+aRKoCdaAv5fiO0=",
+        "lastModified": 1725103162,
+        "narHash": "sha256-Ym04C5+qovuQDYL/rKWSR+WESseQBbNAe5DsXNx5trY=",
         "owner": "nixos",
         "repo": "nixpkgs",
-        "rev": "c374d94f1536013ca8e92341b540eba4c22f9c62",
+        "rev": "12228ff1752d7b7624a54e9c1af4b222b3c1073b",
         "type": "github"
       },
       "original": {
@@ -206,6 +222,7 @@
     },
     "nixvim": {
       "inputs": {
+        "comment-box-nvim": "comment-box-nvim",
         "devshell": "devshell",
         "flake-compat": "flake-compat",
         "flake-parts": "flake-parts",
@@ -219,15 +236,15 @@
         "treefmt-nix": "treefmt-nix"
       },
       "locked": {
-        "lastModified": 1725094258,
-        "narHash": "sha256-mrFi+I5uxY6Lw/F+jptGY3hB6UjzwhRgy5BGTYD5jx4=",
-        "owner": "nix-community",
+        "lastModified": 1725218327,
+        "narHash": "sha256-WPHQS4chI5deGFzVe6nx3P25mLLIO+eYc1PK/Il0Xfw=",
+        "owner": "RuanBuitendag42",
         "repo": "nixvim",
-        "rev": "ee6ee48bbe1ffa88fd4b2af7d68ab0315bc817f0",
+        "rev": "881b9256a8cbfec9302a0f4090581de448d03a23",
         "type": "github"
       },
       "original": {
-        "owner": "nix-community",
+        "owner": "RuanBuitendag42",
         "repo": "nixvim",
         "type": "github"
       }
