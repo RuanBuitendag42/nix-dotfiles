@@ -194,7 +194,7 @@
 
       # Clock
       clock = {
-        format = "󰨳 {:%d %b %Y} {:%R %a}"; # 19:28 Mon
+        format = "󰨳 {:%d %b %Y %R %a}"; # 19:28 Mon
       };
 
     };

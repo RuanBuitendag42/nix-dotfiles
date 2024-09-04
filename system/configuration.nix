@@ -3,7 +3,6 @@
 {
   imports =
     [
-      # Include the results of the hardware scan.
       ./hardware-configuration.nix
     ];
 
@@ -35,28 +34,6 @@
   time.timeZone = "Africa/Johannesburg";
   i18n.defaultLocale = "en_ZA.UTF-8";
 
-  # Extra Portal Configuration
-  # xdg = {
-  #   autostart.enable = true;
-  #   portal = {
-  #     enable = true;
-  #     wlr.enable = true;
-  #     extraPortals = with pkgs; [
-  #       xdg-desktop-portal-gtk
-  #       xdg-desktop-portal-hyprland
-  #       xdg-desktop-portal
-  #     ];
-  #     configPackages = with pkgs; [
-  #       xdg-desktop-portal-gtk
-  #       xdg-desktop-portal-hyprland
-  #       xdg-desktop-portal
-  #     ];
-  #     config = {
-  #       common.default = [ "gtk" ];
-  #     };
-  #   };
-  # };
-
   services = {
     greetd = {
       enable = true;
@@ -66,7 +43,7 @@
           user = "ruanb";
           command = ''
             ${pkgs.greetd.tuigreet}/bin/tuigreet --time --asterisks --user-menu --cmd hyprland
-          ''; # start Hyprland with a TUI login manager
+          '';
         };
       };
     };
@@ -79,7 +56,7 @@
       alsa.enable = true;
       alsa.support32Bit = true;
       pulse.enable = true;
-      # jack.enable = true;
+      # jack.enable = true; # Only enable if audio recording software is used
     };
   };
 
@@ -93,9 +70,7 @@
 
   # I use zsh btw
   environment.shells = with pkgs; [ zsh ];
-  programs = {
-    zsh.enable = true;
-  };
+  programs.zsh.enable = true;
 
   #### USER CONFIG FROM HERE ###
   users = {
@@ -104,7 +79,7 @@
       description = "Ruan Buitendag";
       extraGroups = [ "networkmanager" "wheel" ];
     };
-    defaultUserShell = pkgs.zsh;
+  defaultUserShell = pkgs.zsh;
   };
 
   # Allow unfree packages
@@ -113,53 +88,11 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
-    ### SYSTEM ###
-    speechd
-
     ### HOME-MANAGER ###
     home-manager
 
-    ### SHELL ##
-    zsh
-    zsh-powerlevel10k
-    vim
-    wget
-    gh
-    git
-    lazygit
-    neofetch
-    ripgrep
-    imagemagick
-    tree
-
-    ### NEOVIM ###
-      # required
+    ### SYSTEM ###
     gcc clang cl zig
-
-    ### PROGRAMS ###
-    kitty
-    spotify
-    spotify-tray
-    firefox
-    vesktop
-    nautilus
-    pavucontrol
-
-    ### HYPRLAND ###
-    waybar
-    (waybar.overrideAttrs (oldAttrs: {
-      mesonFlags = oldAttrs.mesonFlags ++ [ "-Dexperimental=true" ];
-    })
-    )
-    dunst
-    libnotify
-    swww
-    rofi-wayland
-    greetd.tuigreet
-    wl-clipboard
-    meson
-    wallust
-
   ];
 
   programs = {
@@ -200,12 +133,6 @@
 
   nix = {
     settings = {
-	#      auto-optimise-store = true;
-	#      gc = {
-	#        automatic = true;
-	# dates = "weekly";
-	# options = "--delete-older-than 7d";
-	#      };
       experimental-features = [ "nix-command" "flakes" ];
     };
   };

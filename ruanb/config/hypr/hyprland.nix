@@ -1,7 +1,7 @@
 { config, pkgs, ... }:
 {
   imports = [
-    ./general/environment.nix
+    # ./general/environment.nix
     ./general/input.nix
     ./general/programs.nix
     ./general/appearance.nix

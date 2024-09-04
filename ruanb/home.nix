@@ -8,12 +8,28 @@
 
   home.username = "ruanb";
   home.homeDirectory = "/home/ruanb";
-
-
   home.stateVersion = "24.05"; # Please read the comment before changing.
+  nixpkgs.config.allowUnfree = true;
 
   fonts.fontconfig.enable = true;
   home.packages = with pkgs; [
+    ### PROGRAMS ###
+    spotify
+    spotify-tray
+    firefox
+    vesktop
+    nautilus
+    pavucontrol
+
+    ### HYPRLAND ###
+    waybar
+    dunst
+    libnotify
+    swww
+    rofi-wayland
+    wl-clipboard
+    wallust
+
     # Fonts
     (nerdfonts.override {
       fonts = [ "Meslo" ];
