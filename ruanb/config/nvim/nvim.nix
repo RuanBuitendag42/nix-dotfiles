@@ -3,7 +3,7 @@
     inputs.nixvim.homeManagerModules.nixvim
 
     # Plugins
-    ./plugins/lazy.nix
+    ./lazy.nix
     ./plugins/gitsigns.nix
     ./plugins/which-key.nix
     ./plugins/telescope.nix
