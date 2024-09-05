@@ -2,6 +2,7 @@
 
 {
   imports = [
+    ./daemons.nix
     ./config/config.nix
     ./config/scripts.nix
   ];
@@ -11,6 +12,7 @@
   home.stateVersion = "24.05"; # Please read the comment before changing.
   nixpkgs.config.allowUnfree = true;
 
+  services.cliphist.enable = true;
   fonts.fontconfig.enable = true;
   home.packages = with pkgs; [
     ### PROGRAMS ###

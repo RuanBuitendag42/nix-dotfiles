@@ -1,8 +1,8 @@
 { config, pkgs, lib, ... }:
 {
-  import = [
+  imports = [
     ./aliases.nix
-    ./plugins.nix
+    # ./plugins.nix
     ./shellPackages.nix
   ];
   programs.zsh = {
