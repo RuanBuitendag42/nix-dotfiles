@@ -2,7 +2,6 @@
 
 {
   imports = [
-    ./daemons.nix
     ./config/config.nix
     ./config/scripts.nix
   ];
