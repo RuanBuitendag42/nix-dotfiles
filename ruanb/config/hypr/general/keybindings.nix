@@ -11,12 +11,13 @@
       "$mainMod, E, exec, $fileManager"
       "$mainMod, B, exec, $browser"
       "$mainMod SHIFT, D, exec, vesktop"
-      "$mainMod, V, togglefloating,"
+      "$mainMod, F, togglefloating,"
       "$mainMod, J, togglesplit," # dwindle
       "$mainMod, Q, killactive,"
       "$mainMod, M, exit,"
-      # Custome keybindings
+      # Custom keybindings
       "$mainMod SHIFT, B, exec, ~/.config/waybar/scripts/launch.sh"
+      "$mainMod, V, exec, cliphist list | rofi -dmenu | cliphist decode | wl-copy"
       # Move focus with mainMod + arrow keys
       "$mainMod, left, movefocus, l"
       "$mainMod, right, movefocus, r"

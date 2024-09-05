@@ -3,6 +3,7 @@
     inputs.nixvim.homeManagerModules.nixvim
 
     # Plugins
+    ./plugins/lazy.nix
     ./plugins/gitsigns.nix
     ./plugins/which-key.nix
     ./plugins/telescope.nix
@@ -83,7 +84,6 @@
       clipboard = {
         providers = {
           wl-copy.enable = true; # For Wayland
-          xsel.enable = true; # For X11
         };
 
         # Sync clipboard between OS and Neovim
@@ -160,7 +160,6 @@
         };
       }
       # TIP: Disable arrow keys in normal mode
-      /*
       {
         mode = "n";
         key = "<left>";
@@ -181,7 +180,6 @@
         key = "<down>";
         action = "<cmd>echo 'Use j to move!!'<CR>";
       }
-      */
       # Keybinds to make split navigation easier.
       #  Use CTRL+<hjkl> to switch between windows
       #
