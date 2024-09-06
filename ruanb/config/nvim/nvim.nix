@@ -68,6 +68,11 @@
     #  For more options, you can see `:help option-list`
     # https://nix-community.github.io/nixvim/NeovimOptions/index.html?highlight=globals#opts
     opts = {
+      tabstop = 2;
+      shiftwidth = 2;
+      expandtab = true;
+      autoindent = true;
+
       # Show line numbers
       number = true;
       # You can also add relative line numbers, to help with jumping.
