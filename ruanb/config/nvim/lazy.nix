@@ -1,6 +1,6 @@
 { pkgs, ... }: {
   imports = [
-    ./plugins/neo-tree.nix
+    ./plugins/nvim-tree.nix
   ];
   programs.nixvim.plugins.lazy.enable = true;
 }
