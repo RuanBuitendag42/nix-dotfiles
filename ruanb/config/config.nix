@@ -9,6 +9,7 @@
     ./hypr/hyprland.nix
     ./waybar/waybar.nix
     ./zsh/zsh.nix
+    ./lazygit/lazygit.nix
     # ./rofi/rofi.nix
   ];
   home.file = {
