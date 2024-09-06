@@ -4,7 +4,6 @@
     ./plugins/treesitter.nix
     ./plugins/nvim-cmp.nix
     ./plugins/conform.nix
-    ./plugins/lsp/lspconfig.nix
     ./plugins/lsp/mason.nix
   ];
   programs.nixvim.plugins.lazy.enable = true;

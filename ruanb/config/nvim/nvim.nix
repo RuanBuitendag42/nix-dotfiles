@@ -4,24 +4,6 @@
   inputs,
   ...
 }: {
-  imports = [
-    ./lazy.nix
-    # # Plugins
-    # ./plugins/gitsigns.nix
-    # ./plugins/which-key.nix
-    # ./plugins/telescope.nix
-    # ./plugins/conform.nix
-    # ./plugins/lsp.nix
-    # ./plugins/nvim-cmp.nix
-    # ./plugins/mini.nix
-    # ./plugins/treesitter.nix
-    # ./plugins/kickstart/plugins/debug.nix
-    # ./plugins/kickstart/plugins/indent-blankline.nix
-    # ./plugins/kickstart/plugins/lint.nix
-    # ./plugins/kickstart/plugins/autopairs.nix
-    # ./plugins/kickstart/plugins/neo-tree.nix
-  ];
-
   /*
   =====================================================================
   ==================== READ THIS BEFORE CONTINUING ====================
@@ -45,6 +27,29 @@
   */
   programs.nixvim = {
     enable = true;
+
+    ### Weirdness to make Mason and Lazy work ###
+    package = pkgs.neovim;
+
+    withNodeJs = true;
+    withPython3 = true;
+    withRuby = true;
+
+    extraPackages = with pkgs; [
+      doq
+      sqlite
+      cargo
+      clang
+      cmake
+      gcc
+      gnumake
+      ninja
+      pkg-config
+      yarn
+    ];
+
+    extraLuaPackages = ls: with ls; [luarocks];
+
     defaultEditor = true;
 
     colorschemes = {
