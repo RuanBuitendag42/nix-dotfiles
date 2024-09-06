@@ -1,56 +1,61 @@
 {pkgs, ...}: {
+  home.packages = with pkgs; [
+    alejandra
+    nodePackages.prettier
+    stylua
+    isort
+    black
+  ];
   programs.nixvim = {
-    # Dependencies
-    #
-    # https://nix-community.github.io/nixvim/NeovimOptions/index.html?highlight=extraplugins#extrapackages
-    extraPackages = with pkgs; [
-      # Used to format Lua code
-      stylua
-    ];
-
-    # Autoformat
-    # https://nix-community.github.io/nixvim/plugins/conform-nvim.html
-    plugins.conform-nvim = {
-      enable = true;
-      settings = {
-        notify_on_error = false;
-	format_on_save = ''
-          function(bufnr)
-            -- Disable "format_on_save lsp_fallback" for lanuages that don't
-            -- have a well standardized coding style. You can add additional
-            -- lanuages here or re-enable it for the disabled ones.
-            local disable_filetypes = { c = true, cpp = true }
-            return {
-              timeout_ms = 500,
-              lsp_fallback = not disable_filetypes[vim.bo[bufnr].filetype]
-            }
-          end
-        '';
-        formattersByFt = {
-          lua = ["stylua"];
-          # Conform can also run multiple formatters sequentially
-          # python = [ "isort "black" ];
-          #
-          # You can use a sublist to tell conform to run *until* a formatter
-          # is found
-          # javascript = [ [ "prettierd" "prettier" ] ];
-        };
-      };
-    };
-
-    # https://nix-community.github.io/nixvim/keymaps/index.html
-    keymaps = [
+    plugins.lazy.plugins = with pkgs.vimPlugins; [
       {
-        mode = "";
-        key = "<leader>f";
-        action.__raw = ''
-          function()
-            require('conform').format { async = true, lsp_fallback = true }
-          end
-        '';
-        options = {
-          desc = "[F]ormat buffer";
-        };
+        name = "conform";
+        pkg = conform-nvim;
+        event = ["BufReadPre" "BufNewFile"];
+        # config = "${builtins.readFile ./conform.lua}";
+        config =
+          /*
+          lua
+          */
+          ''
+            function()
+              local conform = require("conform")
+
+              conform.setup({
+                formatters_by_ft = {
+                  javascript = { "prettier" },
+                  typescript = { "prettier" },
+                  javascriptreact = { "prettier" },
+                  typescriptreact = { "prettier" },
+                  svelte = { "prettier" },
+                  css = { "prettier" },
+                  html = { "prettier" },
+                  json = { "prettier" },
+                  yaml = { "prettier" },
+                  markdown = { "prettier" },
+                  graphql = { "prettier" },
+                  liquid = { "prettier" },
+                  lua = { "stylua" },
+                  python = { "isort", "black" },
+                  nix = {"alejandra" },
+
+                },
+                format_on_save = {
+                  lsp_fallback = true,
+                  async = false,
+                  timeout_ms = 1000,
+                },
+              })
+
+              vim.keymap.set({ "n", "v" }, "<leader>mp", function()
+                conform.format({
+                  lsp_fallback = true,
+                  async = false,
+                  timeout_ms = 1000,
+                })
+              end, { desc = "Format file or range (in visual mode)" })
+            end
+          '';
       }
     ];
   };
