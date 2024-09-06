@@ -10,6 +10,27 @@
         ];
         dependencies = [
           nvim-ts-autotag
+          nvim-treesitter-parsers.json
+          nvim-treesitter-parsers.javascript
+          nvim-treesitter-parsers.typescript
+          nvim-treesitter-parsers.tsx
+          nvim-treesitter-parsers.yaml
+          nvim-treesitter-parsers.html
+          nvim-treesitter-parsers.css
+          nvim-treesitter-parsers.prisma
+          nvim-treesitter-parsers.markdown
+          nvim-treesitter-parsers.markdown_inline
+          nvim-treesitter-parsers.svelte
+          nvim-treesitter-parsers.graphql
+          nvim-treesitter-parsers.bash
+          nvim-treesitter-parsers.lua
+          nvim-treesitter-parsers.vim
+          nvim-treesitter-parsers.dockerfile
+          nvim-treesitter-parsers.gitignore
+          nvim-treesitter-parsers.query
+          nvim-treesitter-parsers.vimdoc
+          nvim-treesitter-parsers.c
+          nvim-treesitter-parsers.nix
         ];
         config = ''
           function()
@@ -26,30 +47,6 @@
               -- enable autotagging (w/ nvim-ts-autotag plugin)
               autotag = {
                 enable = true,
-              },
-              -- ensure these language parsers are installed
-              ensure_installed = {
-                "json",
-                "javascript",
-                "typescript",
-                "tsx",
-                "yaml",
-                "html",
-                "css",
-                "prisma",
-                "markdown",
-                "markdown_inline",
-                "svelte",
-                "graphql",
-                "bash",
-                "lua",
-                "vim",
-                "dockerfile",
-                "gitignore",
-                "query",
-                "vimdoc",
-                "c",
-                "nix"
               },
               incremental_selection = {
                 enable = true,
