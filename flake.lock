@@ -271,11 +271,28 @@
         "type": "github"
       }
     },
+    "nvim-lsp-file-operations": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1718462620,
+        "narHash": "sha256-FeqmybXQeZUHv/td2QTLxUZeWSblRhDqwDx9ih0A5DM=",
+        "owner": "antosha417",
+        "repo": "nvim-lsp-file-operations",
+        "rev": "92a673de7ecaa157dd230d0128def10beb56d103",
+        "type": "github"
+      },
+      "original": {
+        "owner": "antosha417",
+        "repo": "nvim-lsp-file-operations",
+        "type": "github"
+      }
+    },
     "root": {
       "inputs": {
         "home-manager": "home-manager",
         "nixpkgs": "nixpkgs",
-        "nixvim": "nixvim"
+        "nixvim": "nixvim",
+        "nvim-lsp-file-operations": "nvim-lsp-file-operations"
       }
     },
     "systems": {

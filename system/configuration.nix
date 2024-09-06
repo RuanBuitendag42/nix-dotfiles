@@ -1,10 +1,12 @@
-{ config, pkgs, inputs, ... }:
-
 {
-  imports =
-    [
-      ./hardware-configuration.nix
-    ];
+  config,
+  pkgs,
+  inputs,
+  ...
+}: {
+  imports = [
+    ./hardware-configuration.nix
+  ];
 
   # Bootloader.
   boot = {
@@ -12,14 +14,14 @@
       systemd-boot.enable = true;
       efi.canTouchEfiVariables = true;
     };
-    kernelModules = [ "ntfs3" ];
+    kernelModules = ["ntfs3"];
   };
 
   # Automount external drive
   fileSystems."/mnt/data" = {
     device = "/dev/disk/by-uuid/F8C2987BC2983FB4";
     fsType = "ntfs3";
-    options = [ "defaults" "noatime" "uid=1000" "gid=1000" ];
+    options = ["defaults" "noatime" "uid=1000" "gid=1000"];
   };
 
   networking = {
@@ -27,7 +29,6 @@
     # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
     # Enable networking
     networkmanager.enable = true;
-
   };
 
   # Set your time zone.
@@ -69,7 +70,7 @@
   hardware.graphics.enable = true;
 
   # I use zsh btw
-  environment.shells = with pkgs; [ zsh ];
+  environment.shells = with pkgs; [zsh];
   programs.zsh.enable = true;
 
   #### USER CONFIG FROM HERE ###
@@ -77,9 +78,9 @@
     users.ruanb = {
       isNormalUser = true;
       description = "Ruan Buitendag";
-      extraGroups = [ "networkmanager" "wheel" ];
+      extraGroups = ["networkmanager" "wheel"];
     };
-  defaultUserShell = pkgs.zsh;
+    defaultUserShell = pkgs.zsh;
   };
 
   # Allow unfree packages
@@ -92,7 +93,13 @@
     home-manager
 
     ### SYSTEM ###
-    gcc clang cl zig
+    gcc
+    clang
+    cl
+    zig
+
+    ### I DON'T KNOW WHY THIS NEEDS TO BE HERE ###
+    gh
   ];
 
   programs = {
@@ -133,8 +140,7 @@
 
   nix = {
     settings = {
-      experimental-features = [ "nix-command" "flakes" ];
+      experimental-features = ["nix-command" "flakes"];
     };
   };
-
 }
