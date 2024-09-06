@@ -7,7 +7,7 @@
         dependencies = [
           nvim-web-devicons
         ];
-        config = "${builtins.readFile ./tree-sitter.lua}";
+        config = "${builtins.readFile ./nvim-tree.lua}";
       }
     ];
   };
