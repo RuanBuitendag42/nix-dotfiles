@@ -1,7 +1,10 @@
-{ config, pkgs, inputs, ... }: {
+{
+  config,
+  pkgs,
+  inputs,
+  ...
+}: {
   imports = [
-    inputs.nixvim.homeManagerModules.nixvim
-
     ./lazy.nix
     # # Plugins
     # ./plugins/gitsigns.nix
@@ -39,7 +42,7 @@
   ========                                                     ========
   =====================================================================
   =====================================================================
- */
+  */
   programs.nixvim = {
     enable = true;
     defaultEditor = true;
