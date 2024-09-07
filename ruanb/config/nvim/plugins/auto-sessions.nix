@@ -14,6 +14,7 @@
     ];
     plugins.auto-session = {
       enable = true;
+      autoSession.enabled = false;
     };
   };
 }
