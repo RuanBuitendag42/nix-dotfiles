@@ -9,6 +9,9 @@
         nil-ls = {
           enable = true;
         };
+        pylsp = {
+          enable = true;
+        };
       };
       keymaps = {
         silent = true;

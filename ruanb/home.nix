@@ -42,7 +42,6 @@
   home.sessionVariables = {
     EDITOR = "nvim";
     DISPLAY = ":0";
-    XDG_RUNTIME_DIR = "/run/user/${toString (builtins.getEnv "UID")}";
   };
 
   # Let Home Manager install and manage itself.

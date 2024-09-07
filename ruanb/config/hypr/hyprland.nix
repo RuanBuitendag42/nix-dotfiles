@@ -1,5 +1,8 @@
-{ config, pkgs, ... }:
 {
+  config,
+  pkgs,
+  ...
+}: {
   imports = [
     # ./general/environment.nix
     ./general/input.nix
@@ -13,5 +16,6 @@
     enable = true;
     package = pkgs.hyprland;
     xwayland.enable = true;
+    systemd.enable = true;
   };
 }

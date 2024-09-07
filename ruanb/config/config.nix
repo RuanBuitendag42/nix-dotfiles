@@ -1,8 +1,4 @@
 {
-  config,
-  pkgs,
-  ...
-}: {
   imports = [
     ./kitty/kitty.nix
     ./nvim/default.nix

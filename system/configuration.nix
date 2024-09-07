@@ -31,8 +31,6 @@
   i18n.defaultLocale = "en_ZA.UTF-8";
 
   services = {
-    hyprland.enable = true;
-    wayland.enable = true;
     greetd = {
       enable = true;
       vt = 3;
