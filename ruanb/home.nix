@@ -1,6 +1,4 @@
-{ config, pkgs, inputs, ... }:
-
-{
+{pkgs, ...}: {
   imports = [
     ./config/config.nix
     ./config/scripts.nix
@@ -33,20 +31,19 @@
 
     # Fonts
     (nerdfonts.override {
-      fonts = [ "Meslo" ];
+      fonts = ["Meslo"];
     })
   ];
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
   # plain files is through 'home.file'.
-  home.file = { };
+  home.file = {};
 
   home.sessionVariables = {
     EDITOR = "nvim";
     DISPLAY = ":0";
     XDG_RUNTIME_DIR = "/run/user/${toString (builtins.getEnv "UID")}";
   };
-
 
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
