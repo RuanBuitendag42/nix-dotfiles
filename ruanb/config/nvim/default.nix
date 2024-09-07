@@ -13,6 +13,7 @@
     ./plugins/colorscheme.nix
     ./plugins/conform.nix
     ./plugins/dressing.nix
+    ./plugins/floatterm.nix
     ./plugins/lazygit.nix
     ./plugins/lualine.nix
     ./plugins/nvim-cmp.nix
