@@ -7,6 +7,7 @@
     inputs.nixvim.homeManagerModules.nixvim
 
     ./plugins/lsp/lsp.nix
+    ./plugins/alpha.nix
     ./plugins/auto-sessions.nix
     ./plugins/autopairs.nix
     ./plugins/bufferline.nix

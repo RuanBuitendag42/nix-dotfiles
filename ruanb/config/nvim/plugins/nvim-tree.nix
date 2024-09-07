@@ -32,8 +32,6 @@
     ];
     plugins.nvim-tree = {
       enable = true;
-      openOnSetup = true;
-      openOnSetupFile = true;
       preferStartupRoot = true;
       hijackCursor = true;
       view = {
