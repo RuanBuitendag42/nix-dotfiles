@@ -8,6 +8,7 @@ let
     fg = "#c3ccdc";
     bg = "#112638";
     inactive_bg = "#2c3043";
+    semilightgray = "#a0a8b7";
   };
 
   my_lualine_theme = {

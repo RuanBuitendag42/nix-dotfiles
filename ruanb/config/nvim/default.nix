@@ -1,5 +1,4 @@
 {
-  config,
   pkgs,
   inputs,
   ...
@@ -11,6 +10,7 @@
     ./plugins/auto-sessions.nix
     ./plugins/autopairs.nix
     ./plugins/bufferline.nix
+    ./plugins/colorscheme.nix
     ./plugins/conform.nix
     ./plugins/dressing.nix
     ./plugins/lazygit.nix
