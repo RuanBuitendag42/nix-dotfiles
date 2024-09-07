@@ -1,6 +1,5 @@
 {
   programs.nixvim = {
-    # Fuzzy Finder (files, lsp, etc)
     # https://nix-community.github.io/nixvim/plugins/telescope/index.html
     plugins.telescope = {
       # Telescope is a fuzzy finder that comes with a lot of different things that
@@ -30,6 +29,7 @@
       extensions = {
         fzf-native.enable = true;
         ui-select.enable = true;
+        file-browser.enable = true;
       };
 
       # You can put your default mappings / updates / etc. in here
@@ -91,7 +91,7 @@
             desc = "[S]earch [R]esume";
           };
         };
-        "<leader>s" = {
+        "<leader>so" = {
           mode = "n";
           action = "oldfiles";
           options = {
@@ -110,60 +110,5 @@
         extensions.__raw = "{ ['ui-select'] = { require('telescope.themes').get_dropdown() } }";
       };
     };
-
-    # https://nix-community.github.io/nixvim/keymaps/index.html
-    keymaps = [
-      # Slightly advanced example of overriding default behavior and theme
-      {
-        mode = "n";
-        key = "<leader>/";
-        # You can pass additional configuration to Telescope to change the theme, layout, etc.
-        action.__raw = ''
-          function()
-            require('telescope.builtin').current_buffer_fuzzy_find(
-              require('telescope.themes').get_dropdown {
-                winblend = 10,
-                previewer = false
-              }
-            )
-          end
-        '';
-        options = {
-          desc = "[/] Fuzzily search in current buffer";
-        };
-      }
-      {
-        mode = "n";
-        key = "<leader>s/";
-        # It's also possible to pass additional configuration options.
-        #  See `:help telescope.builtin.live_grep()` for information about particular keys
-        action.__raw = ''
-          function()
-            require('telescope.builtin').live_grep {
-              grep_open_files = true,
-              prompt_title = 'Live Grep in Open Files'
-            }
-          end
-        '';
-        options = {
-          desc = "[S]earch [/] in Open Files";
-        };
-      }
-      # Shortcut for searching your Neovim configuration files
-      {
-        mode = "n";
-        key = "<leader>sn";
-        action.__raw = ''
-          function()
-            require('telescope.builtin').find_files {
-              cwd = vim.fn.stdpath 'config'
-            }
-          end
-        '';
-        options = {
-          desc = "[S]earch [N]eovim files";
-        };
-      }
-    ];
   };
 }

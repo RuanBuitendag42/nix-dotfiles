@@ -16,6 +16,8 @@
     ./plugins/which-key.nix
     ./plugins/lazygit.nix
     ./plugins/lsp/lsp.nix
+    ./plugins/telescope.nix
+    ./plugins/auto-sessions.nix
 
     ./custom-plugins.nix
     ./nvim.nix
