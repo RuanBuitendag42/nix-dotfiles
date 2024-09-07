@@ -1,8 +1,8 @@
-{pkgs,...}: {
-programs.nixvim = {
-plugins.cmp = {
-enable = true;
-  autoEnableSources = true;
-  }:
-};
+{pkgs, ...}: {
+  programs.nixvim = {
+    plugins.cmp = {
+      enable = true;
+      autoEnableSources = true;
+    };
+  };
 }

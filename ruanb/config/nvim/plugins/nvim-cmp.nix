@@ -1,70 +1,45 @@
 {pkgs, ...}: {
   programs.nixvim = {
-    plugins.lazy.plugins = with pkgs.vimPlugins; [
-      {
-        name = "nvim-cmp";
-        pkg = nvim-cmp;
-        event = "InsertEnter";
-        dependencies = [
-          cmp-buffer
-          cmp-path
-          luasnip
-          cmp_luasnip
-          friendly-snippets
-          lspkind-nvim
+    plugins.lspkind = {
+      enable = true;
+      cmp = {
+        enable = true;
+        ellipsisChar = "...";
+        maxWidth = 50;
+      };
+    };
+    plugins.cmp = {
+      autoEnableSources = true;
+      settings = {
+        sources = [
+          {name = "nvim_lsp";}
+          {name = "cmp-ai";}
+          {name = "path";}
+          {name = "buffer";}
         ];
-        config =
+
+        completion = {
+          completeopt = "menu,menuone,preview,noselect";
+        };
+        snippet.expand =
           /*
           lua
           */
           ''
-            function()
-              local cmp = require("cmp")
-
-              local luasnip = require("luasnip")
-
-              local lspkind = require("lspkind")
-
-              -- loads vscode style snippets from installed plugins (e.g. friendly-snippets)
-              require("luasnip.loaders.from_vscode").lazy_load()
-
-              cmp.setup({
-                completion = {
-                  completeopt = "menu,menuone,preview,noselect",
-                },
-                snippet = { -- configure how nvim-cmp interacts with snippet engine
-                  expand = function(args)
-                    luasnip.lsp_expand(args.body)
-                  end,
-                },
-                mapping = cmp.mapping.preset.insert({
-                  ["<C-k>"] = cmp.mapping.select_prev_item(), -- previous suggestion
-                  ["<C-j>"] = cmp.mapping.select_next_item(), -- next suggestion
-                  ["<C-b>"] = cmp.mapping.scroll_docs(-4),
-                  ["<C-f>"] = cmp.mapping.scroll_docs(4),
-                  ["<C-Space>"] = cmp.mapping.complete(), -- show completion suggestions
-                  ["<C-e>"] = cmp.mapping.abort(), -- close completion window
-                  ["<CR>"] = cmp.mapping.confirm({ select = false }),
-                }),
-                -- sources for autocompletion
-                sources = cmp.config.sources({
-                  { name = "nvim_lsp"},
-                  { name = "luasnip" }, -- snippets
-                  { name = "buffer" }, -- text within current buffer
-                  { name = "path" }, -- file system paths
-                }),
-
-                -- configure lspkind for vs-code like pictograms in completion menu
-                formatting = {
-                  format = lspkind.cmp_format({
-                    maxwidth = 50,
-                    ellipsis_char = "...",
-                  }),
-                },
-              })
+            function(args)
+              luasnip.lsp_expand(args.body)
             end
           '';
-      }
-    ];
+        mapping = {
+          "<C-k>" = "cmp.mapping.select_prev_item()"; # previous suggestion
+          "<C-j>" = "cmp.mapping.select_next_item()"; # next suggestion
+          "<C-b>" = "cmp.mapping.scroll_docs(-4)";
+          "<C-f>" = "cmp.mapping.scroll_docs(4)";
+          "<C-Space>" = "cmp.mapping.complete()"; # show completion suggestions
+          "<C-e>" = "cmp.mapping.abort()"; # close completion window
+          "<CR>" = "cmp.mapping.confirm({ select = false })";
+        };
+      };
+    };
   };
 }

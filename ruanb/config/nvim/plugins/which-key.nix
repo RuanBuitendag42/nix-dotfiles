@@ -40,6 +40,10 @@
               "v"
             ];
           }
+          {
+            __unkeyed-1 = "<leader>e";
+            group = "[E]xplore";
+          }
         ];
       };
     };
