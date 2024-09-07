@@ -6,9 +6,15 @@
 }: {
   imports = [
     inputs.nixvim.homeManagerModules.nixvim
-    ./adapter.nix
+
+    ./plugins/autopairs.nix
+    ./plugins/nvim-tree.nix
+    ./plugins/cmp.nix
+
     ./custom-plugins.nix
     ./nvim.nix
-    ./lazy.nix
+  ];
+  home.packages = with pkgs; [
+    python3
   ];
 }

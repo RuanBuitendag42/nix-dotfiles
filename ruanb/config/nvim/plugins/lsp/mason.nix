@@ -2,23 +2,13 @@
   imports = [
     ./lspconfig.nix
   ];
-  home.packages = with pkgs; [
-    typescript
-    vscode-langservers-extracted
-    tailwindcss
-    svelte-language-server
-    lua-language-server
-    nodePackages.graphql
-    emmet-ls
-    pyright
-  ];
   programs.nixvim = {
     plugins.lazy.plugins = with pkgs.vimPlugins; [
       {
         name = "mason";
         pkg = mason-nvim;
         dependencies = [
-          mason-tool-installer
+          mason-tool-installer-nvim
         ];
         config =
           /*

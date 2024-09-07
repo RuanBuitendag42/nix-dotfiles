@@ -1,72 +1,50 @@
 {pkgs, ...}: {
   programs.nixvim = {
-    plugins.lazy.plugins = with pkgs.vimPlugins; [
+    keymaps = [
       {
-        name = "nvim-tree";
-        pkg = nvim-tree-lua;
-        dependencies = [
-          nvim-web-devicons
-        ];
-        config =
-          /*
-          lua
-          */
-          ''
-            function()
-              local nvimtree = require("nvim-tree")
-
-              -- recommended settings from nvim-tree documentation
-              vim.g.loaded_netrw = 1
-              vim.g.loaded_netrwPlugin = 1
-
-              nvimtree.setup({
-                view = {
-                  width = 35,
-                  relativenumber = true,
-                },
-                -- change folder arrow icons
-                renderer = {
-                  indent_markers = {
-                    enable = true,
-                  },
-                  icons = {
-                    glyphs = {
-                      folder = {
-                        arrow_closed = "", -- arrow when folder is closed
-                        arrow_open = "", -- arrow when folder is open
-                      },
-                    },
-                  },
-                },
-                -- disable window_picker for
-                -- explorer to work well with
-                -- window splits
-                actions = {
-                  open_file = {
-                    window_picker = {
-                      enable = false,
-                    },
-                  },
-                },
-                filters = {
-                  custom = { ".DS_Store" },
-                },
-                git = {
-                  ignore = false,
-                },
-              })
-
-              -- set keymaps
-              local keymap = vim.keymap -- for conciseness
-
-              keymap.set("n", "<leader>ee", "<cmd>NvimTreeToggle<CR>", { desc = "Toggle file explorer" }) -- toggle file explorer
-              keymap.set("n", "<leader>ef", "<cmd>NvimTreeFindFileToggle<CR>", { desc = "Toggle file explorer on current file" }) -- toggle file explorer on current file
-              keymap.set("n", "<leader>ec", "<cmd>NvimTreeCollapse<CR>", { desc = "Collapse file explorer" }) -- collapse file explorer
-              keymap.set("n", "<leader>er", "<cmd>NvimTreeRefresh<CR>", { desc = "Refresh file explorer" }) -- refresh file explorer
-            end
-
-          '';
+        mode = "n";
+        key = "<leader>ee";
+        action = "<cmd>NvimTreeToggle<CR>";  # toggle file explorer
+        options.desc = "Toggle file explorer";
+      }
+      {
+        mode = "n";
+        key = "<leader>ef";
+        action = "<cmd>NvimTreeFindFileToggle<CR>";  # toggle file explorer on current file
+        options.desc = "Toggle file explorer on current file";
+      }
+      {
+        mode = "n";
+        key = "<leader>ec";
+        action = "<cmd>NvimTreeCollapse<CR>";  # collapse file explorer
+        options.desc = "Collapse file explorer";
+      }
+      {
+        mode = "n";
+        key = "<leader>er";
+        action = "<cmd>NvimTreeRefresh<CR>";  # refresh file explorer
+        options.desc = "Refresh file explorer";
       }
     ];
+    plugins.nvim-tree = {
+      view = {
+        width = 35;
+        relativenumber = true;
+      };
+      # change folder arrow icons
+      renderer = {
+        indentMarkers.enable = true;
+        icons.glyphs.folder = {
+          arrowClosed = ""; # arrow when folder is closed
+          arrowOpen = ""; # arrow when folder is open
+        };
+      };
+      # disable window_picker for
+      # explorer to work well with
+      # window splits
+      actions.windowPicker.enable = false;
+      filters.custom = [ ".DS_Store" ];
+      git.ignore = false;
+    };
   };
 }

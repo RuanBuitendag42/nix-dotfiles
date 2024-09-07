@@ -27,30 +27,8 @@
   */
   programs.nixvim = {
     enable = true;
-
-    ### Weirdness to make Mason and Lazy work ###
-    package = pkgs.neovim;
-
-    withNodeJs = true;
-    withPython3 = true;
-    withRuby = true;
-
-    extraPackages = with pkgs; [
-      doq
-      sqlite
-      cargo
-      clang
-      cmake
-      gcc
-      gnumake
-      ninja
-      pkg-config
-      yarn
-    ];
-
-    extraLuaPackages = ls: with ls; [luarocks];
-
     defaultEditor = true;
+    withNodeJs = true;
 
     colorschemes = {
       # https://nix-community.github.io/nixvim/colorschemes/tokyonight/index.html
