@@ -7,17 +7,19 @@
   imports = [
     inputs.nixvim.homeManagerModules.nixvim
 
-    ./plugins/autopairs.nix
-    ./plugins/conform.nix
-    ./plugins/nvim-tree.nix
-    ./plugins/treesitter.nix
-    ./plugins/nvim-cmp.nix
-    ./plugins/cmp.nix
-    ./plugins/which-key.nix
-    ./plugins/lazygit.nix
     ./plugins/lsp/lsp.nix
-    ./plugins/telescope.nix
     ./plugins/auto-sessions.nix
+    ./plugins/autopairs.nix
+    ./plugins/bufferline.nix
+    ./plugins/conform.nix
+    ./plugins/dressing.nix
+    ./plugins/lazygit.nix
+    ./plugins/lualine.nix
+    ./plugins/nvim-cmp.nix
+    ./plugins/nvim-tree.nix
+    ./plugins/telescope.nix
+    ./plugins/treesitter.nix
+    ./plugins/which-key.nix
 
     ./custom-plugins.nix
     ./nvim.nix

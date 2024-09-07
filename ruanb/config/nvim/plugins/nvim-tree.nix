@@ -1,4 +1,4 @@
-{pkgs, ...}: {
+{
   programs.nixvim = {
     globals = {
       loaded_netrw = 1;
