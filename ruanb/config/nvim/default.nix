@@ -7,12 +7,12 @@
     inputs.nixvim.homeManagerModules.nixvim
 
     ./plugins/lsp/lsp.nix
-    ./plugins/alpha.nix
     ./plugins/auto-sessions.nix
     ./plugins/autopairs.nix
     ./plugins/bufferline.nix
     ./plugins/colorscheme.nix
     ./plugins/conform.nix
+    ./plugins/dashboard.nix
     ./plugins/dressing.nix
     ./plugins/floatterm.nix
     ./plugins/lazygit.nix

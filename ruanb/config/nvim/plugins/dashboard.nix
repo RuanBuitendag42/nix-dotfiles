@@ -1,19 +1,10 @@
 {
   programs.nixvim = {
-    plugins.alpha = {
+    plugins.dashboard = {
       enable = true;
-      layout = [
-        {
-          type = "padding";
-          val = 2;
-        }
-        {
-          opts = {
-            hl = "Type";
-            position = "center";
-          };
-          type = "text";
-          val = [
+      settings = {
+        config = {
+          header = [
             "            :h-                                  Nhy`               "
             "           -mh.                           h.    `Ndho               "
             "           hmh+                          oNm.   oNdhh               "
@@ -49,45 +40,58 @@
             "                           yNh/..------..`                          "
             "                                                                    "
           ];
-        }
-        {
-          type = "padding";
-          val = 2;
-        }
-        {
-          type = "group";
-          opts = {
-            spacing = 1;
-          };
-          val = [
+          center = [
             {
-              on_press = {
-                __raw = "function() vim.cmd('enew') end";
-              };
-              opts = {
-                shortcut = "e";
-                position = "center";
-                align_shortcut = "right";
-                width = 50;
-              };
-              type = "button";
-              val = "  New file";
+              actions = "ene";
+              desc = "> New File";
+              desc_hl = "String";
+              icon = "   ";
+              key = "e";
+              keymap = "e";
+            }
+            {
+              actions = "NvimTreeToggle";
+              desc = "> Toggle file explorer";
+              desc_hl = "String";
+              icon = "   ";
+              key = "SPC ee";
+              keymap = "SPC ee";
+            }
+            {
+              actions = "Telescope find_files";
+              desc = "> Find File";
+              desc_hl = "String";
+              icon = " 󰱼  ";
+              key = "SPC ff";
+              keymap = "SPC ff";
+            }
+            {
+              actions = "Telescope live_grep";
+              desc = "> Find Word";
+              desc_hl = "String";
+              icon = "   ";
+              key = "SPC fs";
+              keymap = "SPC fs";
+            }
+            {
+              actions = "SessionRestore";
+              desc = "> Restore Session For Current Directory";
+              desc_hl = "String";
+              icon = " 󰁯  ";
+              key = "SPC wr";
+              keymap = "SPC wr";
+            }
+            {
+              actions = "qa";
+              desc = "> Quit NVIM";
+              desc_hl = "String";
+              icon = "   ";
+              key = "q";
+              keymap = "q";
             }
           ];
-        }
-        {
-          type = "padding";
-          val = 2;
-        }
-        {
-          opts = {
-            hl = "Keyword";
-            position = "center";
-          };
-          type = "text";
-          val = "Inspiring quote here.";
-        }
-      ];
+        };
+      };
     };
   };
 }
