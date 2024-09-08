@@ -40,38 +40,6 @@
             "                           yNh/..------..`                          "
             "                                                                    "
           ];
-          shortcut = [
-            {
-              actions = "NvimTreeToggle";
-              desc = "   > Toggle file explorer";
-              group = "String";
-              key = "SPC ee";
-            }
-            {
-              actions = "Telescope find_files";
-              desc = " 󰱼  > Find File";
-              group = "String";
-              key = "SPC sf";
-            }
-            {
-              actions = "Telescope live_grep";
-              desc = "   > Find Word";
-              group = "String";
-              key = "SPC fs";
-            }
-            {
-              actions = "SessionRestore";
-              desc = " 󰁯  > Restore Session For Current Directory";
-              group = "String";
-              key = "SPC wr";
-            }
-            {
-              actions = "qa";
-              desc = "   > Quit NVIM";
-              group = "String";
-              key = "q";
-            }
-          ];
         };
       };
     };
