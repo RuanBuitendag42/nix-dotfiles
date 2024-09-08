@@ -40,54 +40,36 @@
             "                           yNh/..------..`                          "
             "                                                                    "
           ];
-          center = [
-            {
-              actions = "ene";
-              desc = "> New File";
-              desc_hl = "String";
-              icon = "   ";
-              key = "e";
-              keymap = "e";
-            }
+          shortcut = [
             {
               actions = "NvimTreeToggle";
-              desc = "> Toggle file explorer";
-              desc_hl = "String";
-              icon = "   ";
+              desc = "   > Toggle file explorer";
+              group = "String";
               key = "SPC ee";
-              keymap = "SPC ee";
             }
             {
               actions = "Telescope find_files";
-              desc = "> Find File";
-              desc_hl = "String";
-              icon = " 󰱼  ";
-              key = "SPC ff";
-              keymap = "SPC ff";
+              desc = " 󰱼  > Find File";
+              group = "String";
+              key = "SPC sf";
             }
             {
               actions = "Telescope live_grep";
-              desc = "> Find Word";
-              desc_hl = "String";
-              icon = "   ";
+              desc = "   > Find Word";
+              group = "String";
               key = "SPC fs";
-              keymap = "SPC fs";
             }
             {
               actions = "SessionRestore";
-              desc = "> Restore Session For Current Directory";
-              desc_hl = "String";
-              icon = " 󰁯  ";
+              desc = " 󰁯  > Restore Session For Current Directory";
+              group = "String";
               key = "SPC wr";
-              keymap = "SPC wr";
             }
             {
               actions = "qa";
-              desc = "> Quit NVIM";
-              desc_hl = "String";
-              icon = "   ";
+              desc = "   > Quit NVIM";
+              group = "String";
               key = "q";
-              keymap = "q";
             }
           ];
         };

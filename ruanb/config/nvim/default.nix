@@ -5,6 +5,7 @@
 }: {
   imports = [
     inputs.nixvim.homeManagerModules.nixvim
+    ./core/keymaps.nix
 
     ./plugins/lsp/lsp.nix
     ./plugins/auto-sessions.nix
@@ -17,6 +18,7 @@
     ./plugins/floatterm.nix
     ./plugins/lazygit.nix
     ./plugins/lualine.nix
+    ./plugins/mini.nix
     ./plugins/nvim-cmp.nix
     ./plugins/nvim-tree.nix
     ./plugins/telescope.nix
