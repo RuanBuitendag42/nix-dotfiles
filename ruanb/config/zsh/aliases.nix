@@ -1,5 +1,8 @@
-{ config, pkgs, ... }:
 {
+  config,
+  pkgs,
+  ...
+}: {
   programs.zsh = {
     shellAliases = {
       # cmd utils
@@ -11,6 +14,7 @@
       cat = "bat";
       lg = "lazygit";
       icat = "kitten icat";
+      v = "nvim";
 
       # ZSH
       vzsh = "nvim ~/.zshrc";
