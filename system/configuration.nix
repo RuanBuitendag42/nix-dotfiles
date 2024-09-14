@@ -32,6 +32,18 @@
   i18n.defaultLocale = "en_ZA.UTF-8";
 
   services = {
+    greetd = {
+      enable = true;
+      vt = 3;
+      settings = {
+        default_session = {
+          user = "ruanb";
+          command = ''
+            ${pkgs.greetd.tuigreet}/bin/tuigreet --time --asterisks --user-menu --cmd hyprland
+          '';
+        };
+      };
+    };
     printing.enable = true;
 
     pipewire = {

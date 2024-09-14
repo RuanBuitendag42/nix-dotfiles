@@ -43,11 +43,6 @@
   # plain files is through 'home.file'.
   home.file = {};
 
-  home.sessionVariables = {
-    EDITOR = "nvim";
-    DISPLAY = ":0";
-  };
-
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
 }
