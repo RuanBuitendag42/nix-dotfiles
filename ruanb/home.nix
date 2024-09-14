@@ -7,7 +7,10 @@
   home.username = "ruanb";
   home.homeDirectory = "/home/ruanb";
   home.stateVersion = "24.05"; # Please read the comment before changing.
-  nixpkgs.config.allowUnfree = true;
+  nixpkgs.config = {
+    allowUnfree = true;
+    allowUnsupportedSystem = true;
+  };
 
   services.cliphist.enable = true;
   fonts.fontconfig.enable = true;
@@ -19,6 +22,7 @@
     vesktop
     nautilus
     pavucontrol
+    thunderbird
 
     ### HYPRLAND ###
     waybar

@@ -1,6 +1,7 @@
 {pkgs, ...}: {
   imports = [
     ./hardware-configuration.nix
+    ./regreet.nix
   ];
 
   # Bootloader.
@@ -31,20 +32,6 @@
   i18n.defaultLocale = "en_ZA.UTF-8";
 
   services = {
-    greetd = {
-      enable = true;
-      vt = 3;
-      settings = {
-        default_session = {
-          user = "ruanb";
-          command = ''
-            ${pkgs.greetd.tuigreet}/bin/tuigreet --time --asterisks --user-menu --cmd hyprland
-          '';
-        };
-      };
-    };
-
-    # Enable CUPS to print documents.
     printing.enable = true;
 
     pipewire = {
@@ -54,6 +41,15 @@
       pulse.enable = true;
       # jack.enable = true; # Only enable if audio recording software is used
     };
+  };
+
+  ### GTK Portals ###
+  xdg.portal = {
+    enable = true;
+    extraPortals = with pkgs; [
+      xdg-desktop-portal-gtk
+    ];
+    config.commen.default = "*";
   };
 
   # Enable sound with pipewire.
@@ -92,6 +88,7 @@
     clang
     cl
     zig
+    cage
 
     ### I DON'T KNOW WHY THIS NEEDS TO BE HERE ###
     gh

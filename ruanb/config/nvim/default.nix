@@ -6,6 +6,7 @@
   imports = [
     inputs.nixvim.homeManagerModules.nixvim
     ./core/keymaps.nix
+    ./core/options.nix
 
     ./plugins/lsp/lsp.nix
     ./plugins/auto-sessions.nix

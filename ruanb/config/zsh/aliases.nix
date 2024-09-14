@@ -1,8 +1,4 @@
 {
-  config,
-  pkgs,
-  ...
-}: {
   programs.zsh = {
     shellAliases = {
       # cmd utils
