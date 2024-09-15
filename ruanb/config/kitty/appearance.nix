@@ -1,6 +1,6 @@
 {
   programs.kitty = {
-    theme = "Catppuccin-Mocha";
+    # theme = "Catppuccin-Mocha";
     font = {
       name = "MesloLGS Nerd Font";
     };

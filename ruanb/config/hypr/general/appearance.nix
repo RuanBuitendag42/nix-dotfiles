@@ -1,5 +1,5 @@
-{ config, pkgs, ... }:
 {
+  wayland.windowManager.hyprland.catppuccin.enable = true;
   wayland.windowManager.hyprland.settings = {
     "monitor" = ",2560x1440@144,0x0,1";
     # Refer to https://wiki.hyprland.org/Configuring/Variables/
@@ -10,8 +10,8 @@
       border_size = 1;
 
       # https://wiki.hyprland.org/Configuring/Variables/#variable-types for info about colors
-      "col.active_border" = "rgba(33ccffee) rgba(00ff99ee) 45deg";
-      "col.inactive_border" = "rgba(595959aa)";
+      # "col.active_border" = "rgba(33ccffee) rgba(00ff99ee) 45deg";
+      # "col.inactive_border" = "rgba(595959aa)";
 
       # Set to true to enable resizing windows by clicking and dragging on borders and gaps
       resize_on_border = true;
@@ -32,7 +32,7 @@
       drop_shadow = true;
       shadow_range = 4;
       shadow_render_power = 3;
-      "col.shadow" = "rgba(1a1a1aee)";
+      # "col.shadow" = "rgba(1a1a1aee)";
 
       blur = {
         enabled = true;
