@@ -1,7 +1,6 @@
-{ config, pkgs, ... }:
 {
   programs.kitty = {
-    theme = "Tokyo Night";
+    theme = "Catppuccin Mocha";
     font = {
       name = "MesloLGS Nerd Font";
     };
