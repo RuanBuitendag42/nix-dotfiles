@@ -7,6 +7,7 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    catppuccin.url = "github:catppuccin/nix";
     nixvim = {
       url = "github:RuanBuitendag42/nixvim";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -20,6 +21,7 @@
   outputs = {
     nixpkgs,
     home-manager,
+    catppuccin,
     nixvim,
     nvim-lsp-file-operations,
     ...
@@ -29,7 +31,10 @@
   in {
     homeConfigurations.ruanb = home-manager.lib.homeManagerConfiguration {
       inherit pkgs;
-      modules = [./ruanb/home.nix];
+      modules = [
+        ./ruanb/home.nix
+        catppuccin.homeManagerModules.catppuccin
+      ];
       extraSpecialArgs = {
         inherit inputs;
       };

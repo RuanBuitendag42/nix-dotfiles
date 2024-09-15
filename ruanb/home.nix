@@ -1,4 +1,8 @@
-{pkgs, ...}: {
+{
+  pkgs,
+  catppuccin,
+  ...
+}: {
   imports = [
     ./config/config.nix
     ./config/scripts.nix
@@ -38,6 +42,11 @@
       fonts = ["Meslo"];
     })
   ];
+
+  catppuccin = {
+    enable = true;
+    flavor = "mocha";
+  };
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
   # plain files is through 'home.file'.
