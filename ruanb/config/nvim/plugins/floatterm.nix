@@ -1,7 +1,7 @@
 {
   programs.nixvim = {
     plugins.floaterm = {
-      enable = true;
+      enable = false;
       height = 0.95;
       width = 0.95;
       keymaps = {

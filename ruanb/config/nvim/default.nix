@@ -9,6 +9,8 @@
     ./core/options.nix
 
     ./plugins/lsp/lsp.nix
+    ./plugins/theme/colorscheme.nix
+
     ./plugins/auto-sessions.nix
     ./plugins/autopairs.nix
     ./plugins/bufferline.nix

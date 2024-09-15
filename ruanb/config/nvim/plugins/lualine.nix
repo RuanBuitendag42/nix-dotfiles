@@ -107,7 +107,7 @@ in {
   programs.nixvim = {
     plugins.lualine = {
       enable = true;
-      theme = my_lualine_theme;
+      # theme = my_lualine_theme;
       sections = {
         lualine_x = [
           "encoding"

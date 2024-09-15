@@ -1,9 +1,17 @@
 {
   programs.nixvim = {
     colorschemes = {
+      # https://nix-community.github.io/nixvim/colorschemes/catppuccin/index.html
+      catppuccin = {
+        enable = true;
+        settings = {
+          flavour = "mocha";
+        };
+      };
+
       # https://nix-community.github.io/nixvim/colorschemes/tokyonight/index.html
       tokyonight = {
-        enable = true;
+        enable = false;
         settings = {
           style = "night";
           on_colors =
