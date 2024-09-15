@@ -1,202 +1,150 @@
-{ config, pkgs, ... }:
 {
   programs.waybar.settings = {
     mainBar = {
-      layer = "top";
-      position = "top";
-      font = "MesloLGS Nerd Font";
-      reload_style_on_change = true;
-      spacing = 7; # Gaps between modules (4px)
-      modules-left = [ "group/quicklinks-left" "wlr/taskbar" "hyprland/window" ];
-      modules-center = [ "hyprland/workspaces" ];
-      modules-right = [
-        "mpd"
-        "network"
-        "pulseaudio"
-        "group/hardware"
-        "clock"
-        "group/quicklinks-right"
-      ];
+      layer = "top"; # Waybar at top layer
+      position = "top"; # top|left|bottom|right
+      modules-left = ["hyprland/window"];
+      modules-center = ["wlr/workspaces"];
+      modules-right = ["pulseaudio" "network" "cpu" "memory" "temperature" "keyboard-state" "clock"];
 
-      # Taskbar
-      "wlr/taskbar" = {
+      # Modules configuration
+      "wlr/workspaces" = {
         format = "{icon}";
-        icon-size = "20";
-        on-click = "activate";
-        on-click-right = "close";
-        tooltip-format = "Go to {title}";
-        ignore-list = [ "kitty" "kitty-scratchpad" ];
+        on-scroll-up = "hyprctl dispatch workspace e+1";
+        on-scroll-down = "hyprctl dispatch workspace e-1";
+        "format-icons" = {
+          "1" = "1";
+          "2" = "2";
+          "3" = "3";
+        };
       };
 
-      # Hyprland
-      "hyprland/workspaces" = {
-        disable-scroll = true;
-        sort-by = "number";
-        all-outputs = true;
-        warp-on-scroll = false;
-        format = "{icon}";
-        format-icons = {
-          "1" = " ";
-          "2" = " ";
-          "3" = " ";
+      "keyboard-state" = {
+        numlock = true;
+        capslock = true;
+        format = "{icon} {name}";
+        "format-icons" = {
+          locked = "";
+          unlocked = "";
         };
       };
 
       "hyprland/window" = {
-        format = "{title}";
-        icon = true;
-        icon-size = 20;
-        max-length = 30;
+        format = "➡ {}";
         separate-outputs = true;
-        rewrite = {
-          "(.*) - Brave" = "$1";
+      };
+
+      mpd = {
+        format = "{stateIcon} {consumeIcon}{randomIcon}{repeatIcon}{singleIcon}{artist} - {album} - {title} ({elapsedTime:%M:%S}/{totalTime:%M:%S}) ⸨{songPosition}|{queueLength}⸩ {volume}% ";
+        "format-disconnected" = "Disconnected ";
+        "format-stopped" = "{consumeIcon}{randomIcon}{repeatIcon}{singleIcon}Stopped ";
+        "unknown-tag" = "N/A";
+        interval = 2;
+        "consume-icons" = {
+          on = " ";
         };
-      };
-
-      # Quicklinks
-      "group/quicklinks-left" = {
-        orientation = "horizontal";
-        modules = [
-          "image"
-          "custom/chatgpt"
-          "custom/terminal"
-          "custom/browser"
-          "custom/explorer"
-        ];
-      };
-
-      image = {
-        path = "/home/ruanb/Pictures/Icons/nix.svg";
-        on-click = "~/.config/rofi/menus/drun.sh";
-        size = 18;
-      };
-
-      "custom/chatgpt" = {
-        format = " ";
-        tooltip = true;
-        tooltip-format = "Open ChatGPT!";
-        on-click = "brave --new-tab https://chatgpt.com";
-      };
-
-      "custom/terminal" = {
-        format = " ";
-        tooltip = true;
-        tooltip-format = " Open Kitty!";
-        on-click = "kitty";
-      };
-
-      "custom/browser" = {
-        format = " ";
-        tooltip = true;
-        tooltip-format = " Open FireFox!";
-        on-click = "firefox";
-      };
-
-      "custom/explorer" = {
-        format = " ";
-        tooltip = true;
-        tooltip-format = " Open Dolphin!";
-        on-click = "nautilus";
-      };
-
-      "group/quicklinks-right" = {
-        orientation = "horizontal";
-        modules = [
-          "idle_inhibitor"
-          "custom/wallpaper"
-          "custom/power-menu"
-        ];
+        "random-icons" = {
+          off = "<span color=\"#f53c3c\"></span> ";
+          on = " ";
+        };
+        "repeat-icons" = {
+          on = " ";
+        };
+        "single-icons" = {
+          on = "1 ";
+        };
+        "state-icons" = {
+          paused = "";
+          playing = "";
+        };
+        "tooltip-format" = "MPD (connected)";
+        "tooltip-format-disconnected" = "MPD (disconnected)";
       };
 
       idle_inhibitor = {
         format = "{icon}";
-        format-icons = {
-          activated = " ";
-          deactivated = " ";
+        "format-icons" = {
+          activated = "";
+          deactivated = "";
         };
       };
 
-      "custom/power-menu" = {
-        format = " ";
-        tooltip = true;
-        tooltip-format = " Open Wlogout!";
-        on-click = "~/.config/hypr/scripts/power-menu.sh";
+      tray = {
+        # "icon-size" = 21;
+        spacing = 10;
       };
 
-      "custom/wallpaper" = {
-        format = " ";
-        tooltip = true;
-        tooltip-format = " Change Wallpaper!";
-        on-click = "~/.config/rofi/menus/swww.sh";
-      };
-
-      # Settings
-      "group/settings" = {
-        orientation = "horizontal";
-        modules = [ ];
-      };
-
-      # Temperature
-      temperature = {
-        critical-threshold = 80;
-        format = "{temperatureC}°C {icon}";
-        format-icons = [ "" "" "" ];
-      };
-
-      # Audio setup
-      pulseaudio = {
-        format = "{volume}% {icon}";
-        format-bluetooth = "{volume}% {icon} {format_source}";
-        format-bluetooth-muted = " {icon} {format_source}";
-        format-muted = " 󰝟  {format_source}";
-        format-source = "{volume}% ";
-        format-source-muted = "";
-        format-icons = {
-          default = [ "" " " " " ];
-        };
-        max-volume = 150;
-        on-click = "pavucontrol";
-      };
-
-      # Network setup
-      network = {
-        format = "{ifname}";
-        format-wifi = "{essid} ({signalStrength}%)  ";
-        format-ethernet = "{bandwidthDownBytes}  ";
-        format-disconnected = ""; # An empty format will hide the module.
-        tooltip-format = "{ifname} via {gwaddr} 󰊗";
-        tooltip-format-wifi = "{essid} ({signalStrength}%) ";
-        tooltip-format-ethernet = "{ifname}  ";
-        tooltip-format-disconnected = "Disconnected";
-        max-length = 50;
-        interval = 2;
-      };
-
-      # Hardware info
-      "group/hardware" = {
-        orientation = "horizontal";
-        modules = [ "disk" "cpu" "memory" ];
-      };
-
-      disk = {
-        format = "{percentage_used}%  ";
-        path = "/home";
+      clock = {
+        # timezone = "America/New_York";
+        "tooltip-format" = "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>";
+        "format-alt" = "{:%Y-%m-%d}";
       };
 
       cpu = {
-        format = " {usage}%  ";
+        format = " {usage}%";
         tooltip = false;
       };
 
       memory = {
-        format = " {}%  ";
+        format = "{}% ";
       };
 
-      # Clock
-      clock = {
-        format = "󰨳 {:%d %b %Y %R %a}"; # 19:28 Mon
+      temperature = {
+        # thermal-zone = 2;
+        # hwmon-path = "/sys/class/hwmon/hwmon2/temp1_input";
+        "critical-threshold" = 80;
+        # "format-critical" = "{temperatureC}°C {icon}";
+        format = "{icon} {temperatureC}°C";
+        "format-icons" = ["" "" ""];
       };
 
+      backlight = {
+        # device = "acpi_video1";
+        format = "{percent}% {icon}";
+        "format-icons" = ["" "" "" "" "" "" "" "" ""];
+      };
+
+      network = {
+        # interface = "wlp2*"; # (Optional) To force the use of this interface
+        "format-wifi" = " {essid} ({signalStrength}%)";
+        "format-ethernet" = " {ipaddr}/{cidr}";
+        "tooltip-format" = " {ifname} via {gwaddr}";
+        "format-linked" = " {ifname} (No IP)";
+        "format-disconnected" = "⚠ Disconnected";
+        "format-alt" = "{ifname}: {ipaddr}/{cidr}";
+      };
+
+      pulseaudio = {
+        # scroll-step = 1; # %, can be a float
+        format = "{icon}  {volume}%   {format_source}";
+        "format-bluetooth" = "{volume}% {icon} {format_source}";
+        "format-bluetooth-muted" = " {icon} {format_source}";
+        "format-muted" = " {format_source}";
+        "format-source" = " {volume}%";
+        "format-source-muted" = "";
+        "format-icons" = {
+          headphone = "";
+          headset = "";
+          phone = "";
+          portable = "";
+          car = "";
+          default = ["" "" ""];
+        };
+        "on-click" = "pavucontrol";
+      };
+
+      "custom/media" = {
+        format = "{icon} {}";
+        "return-type" = "json";
+        "max-length" = 40;
+        "format-icons" = {
+          spotify = "";
+          default = "";
+        };
+        escape = true;
+        exec = "$HOME/.config/waybar/mediaplayer.py 2> /dev/null"; # Script in resources folder
+        # exec = "$HOME/.config/waybar/mediaplayer.py --player spotify 2> /dev/null"; # Filter player based on name
+      };
     };
   };
 }
