@@ -5,11 +5,9 @@
 }: {
   imports = [
     inputs.nixvim.homeManagerModules.nixvim
-    ./core/keymaps.nix
-    ./core/options.nix
-
-    ./plugins/lsp/lsp.nix
-    ./plugins/theme/colorscheme.nix
+    ./core
+    ./plugins/lsp
+    ./plugins/theme
 
     ./plugins/auto-sessions.nix
     ./plugins/autopairs.nix
@@ -21,8 +19,8 @@
     ./plugins/lazygit.nix
     ./plugins/lualine.nix
     ./plugins/mini.nix
+    ./plugins/neo-tree.nix
     ./plugins/nvim-cmp.nix
-    ./plugins/nvim-tree.nix
     ./plugins/telescope.nix
     ./plugins/treesitter.nix
     ./plugins/which-key.nix

@@ -1,9 +1,5 @@
 {
   programs.nixvim = {
-    globals = {
-      loaded_netrw = 1;
-      loaded_netrwPlugin = 1;
-    };
     keymaps = [
       {
         mode = "n";
@@ -30,28 +26,8 @@
         options.desc = "Refresh file explorer";
       }
     ];
-    plugins.nvim-tree = {
+    plugins.neo-tree = {
       enable = true;
-      preferStartupRoot = true;
-      hijackCursor = true;
-      view = {
-        width = 35;
-        relativenumber = true;
-      };
-      # change folder arrow icons
-      renderer = {
-        indentMarkers.enable = true;
-        icons.glyphs.folder = {
-          arrowClosed = ""; # arrow when folder is closed
-          arrowOpen = ""; # arrow when folder is open
-        };
-      };
-      # disable window_picker for
-      # explorer to work well with
-      # window splits
-      actions.windowPicker.enable = false;
-      filters.custom = [".DS_Store"];
-      git.ignore = false;
     };
   };
 }
