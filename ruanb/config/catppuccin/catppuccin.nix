@@ -4,8 +4,9 @@
     flavor = "mocha";
   };
 
+  gtk.catppuccin.enable = true;
+
   programs = {
-    gtk.catppuccin.enable = true;
     bat.catppuccin.enable = true;
     fzf.catppuccin.enable = true;
     k9s.catppuccin.enable = true;
@@ -13,7 +14,7 @@
     lazygit.catppuccin.enable = true;
     neovim.catppuccin.enable = true;
     rofi.catppuccin.enable = true;
-    rmux.catppuccin.enable = true;
+    tmux.catppuccin.enable = true;
     waybar.catppuccin.enable = true;
     zsh.syntaxHighlighting.catppuccin.enable = true;
   };
