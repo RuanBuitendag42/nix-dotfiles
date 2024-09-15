@@ -20,7 +20,6 @@
     ./plugins/dressing.nix
     ./plugins/floatterm.nix
     ./plugins/lazygit.nix
-    ./plugins/lualine.nix
     ./plugins/mini.nix
     ./plugins/neo-tree.nix
     ./plugins/nvim-cmp.nix
