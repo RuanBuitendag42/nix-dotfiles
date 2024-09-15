@@ -2,7 +2,7 @@
   programs.kitty = {
     # theme = "Catppuccin-Mocha";
     font = {
-      name = "MesloLGS Nerd Font";
+      name = "FiraCode Nerd Font";
     };
     settings = {
       background_opacity = "0.95";

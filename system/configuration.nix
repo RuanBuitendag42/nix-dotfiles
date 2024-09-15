@@ -1,8 +1,4 @@
-{
-  pkgs,
-  lib,
-  ...
-}: {
+{pkgs, ...}: {
   imports = [
     ./hardware-configuration.nix
   ];
@@ -77,6 +73,11 @@
     defaultUserShell = pkgs.zsh;
   };
 
+  fonts.packages = with pkgs; [
+    (nerdfonts.override {
+      fonts = ["FiraCode"];
+    })
+  ];
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 
@@ -92,9 +93,6 @@
     cl
     zig
     cage
-
-    ### I DON'T KNOW WHY THIS NEEDS TO BE HERE ###
-    gh
   ];
 
   programs = {

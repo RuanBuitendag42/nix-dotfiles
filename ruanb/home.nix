@@ -32,11 +32,6 @@
     rofi-wayland
     wl-clipboard
     wallust
-
-    # Fonts
-    (nerdfonts.override {
-      fonts = ["Meslo"];
-    })
   ];
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
