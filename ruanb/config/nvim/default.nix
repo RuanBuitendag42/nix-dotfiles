@@ -5,9 +5,12 @@
 }: {
   imports = [
     inputs.nixvim.homeManagerModules.nixvim
-    ./core
-    ./plugins/lsp
-    ./plugins/theme
+    ./core/keymaps.nix
+    ./core/options.nix
+
+    ./plugins/lsp/lsp.nix
+    ./plugins/theme/lualine.nix
+    ./plugins/theme/colorscheme.nix
 
     ./plugins/auto-sessions.nix
     ./plugins/autopairs.nix
