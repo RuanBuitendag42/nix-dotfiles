@@ -1,4 +1,3 @@
-{ config, pkgs, ... }:
 {
   wayland.windowManager.hyprland.settings = {
     "$terminal" = "kitty";

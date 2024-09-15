@@ -1,8 +1,4 @@
 {
-  config,
-  pkgs,
-  ...
-}: {
   wayland.windowManager.hyprland.settings = {
     # See https://wiki.hyprland.org/Configuring/Keywords/
     "$mainMod" = "SUPER"; # Sets "Windows" key as main modifier

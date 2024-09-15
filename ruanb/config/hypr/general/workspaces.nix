@@ -1,4 +1,3 @@
-{ config, pkgs, ... }:
 {
   wayland.windowManager.hyprland.settings = {
     # Example windowrule v1
