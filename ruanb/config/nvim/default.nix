@@ -14,7 +14,6 @@
     ./plugins/auto-sessions.nix
     ./plugins/autopairs.nix
     ./plugins/bufferline.nix
-    ./plugins/colorscheme.nix
     ./plugins/conform.nix
     ./plugins/dashboard.nix
     ./plugins/dressing.nix
