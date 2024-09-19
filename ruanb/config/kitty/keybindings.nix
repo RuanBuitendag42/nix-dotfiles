@@ -1,8 +1,4 @@
 {
-  config,
-  pkgs,
-  ...
-}: {
   programs.kitty.settings = {
     "ctrl+shift+t" = "new_tab"; # Create a new tab
     "ctrl+shift+w" = "close_tab"; # Close the current tab
