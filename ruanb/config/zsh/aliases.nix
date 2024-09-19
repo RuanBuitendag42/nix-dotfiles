@@ -15,6 +15,7 @@
       reload = "source ~/.zshrc";
 
       stowNvim = "cp ~/.config/nvim/init.lua ~/Dev/github/ruanb/nix-nvim/";
+      wallpaper = "~/.config/swww/scripts/changeWallpaper.sh";
 
       # NIXOS utils
       nixsw = "sudo nixos-rebuild switch --flake ~/Dev/github/ruanb/nix-dotfiles";
