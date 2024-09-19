@@ -9,7 +9,7 @@
     };
     catppuccin.url = "github:catppuccin/nix";
     nixvim = {
-      url = "github:RuanBuitendag42/nixvim";
+      url = "github:nix-community/nixvim";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     nvim-lsp-file-operations = {

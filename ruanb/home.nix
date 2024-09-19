@@ -29,7 +29,6 @@
     dunst
     libnotify
     swww
-    rofi-wayland
     wl-clipboard
     wallust
   ];

@@ -47,6 +47,7 @@
     enable = true;
     extraPortals = with pkgs; [
       xdg-desktop-portal-gtk
+      xdg-desktop-portal-hyprland
     ];
     config.commen.default = "*";
   };
@@ -93,6 +94,8 @@
     cl
     zig
     cage
+
+    gh
   ];
 
   programs = {
