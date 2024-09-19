@@ -92,7 +92,7 @@
             padding: 0 5px;
             border-radius: 5em / 5em;
             background-color: @surface0;
-            color: @peach;
+            color: @teal;
             margin: 2px;
             font-weight: bold;
         }
@@ -124,7 +124,7 @@
             font-weight:bold;
             border-radius: 5em / 5em;
             padding: 0 10px;
-            color: @peach;
+            color: @teal;
         }
 
 

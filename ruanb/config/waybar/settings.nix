@@ -4,18 +4,41 @@
       layer = "top"; # Waybar at top layer
       position = "top"; # top|left|bottom|right
       modules-left = ["hyprland/window"];
-      modules-center = ["wlr/workspaces"];
+      modules-center = ["hyprland/workspaces"];
       modules-right = ["pulseaudio" "network" "cpu" "memory" "temperature" "keyboard-state" "clock"];
 
       # Modules configuration
-      "wlr/workspaces" = {
-        format = "{icon}";
-        on-scroll-up = "hyprctl dispatch workspace e+1";
-        on-scroll-down = "hyprctl dispatch workspace e-1";
+      "hyprland/workspaces" = {
+        "all-outputs" = true;
+        "disable-scroll" = true;
+        "format" = "{icon}";
         "format-icons" = {
-          "1" = "1";
-          "2" = "2";
-          "3" = "3";
+          "1" = "";
+          "2" = "";
+          "3" = "";
+          "4" = "";
+          "5" = "";
+          "6" = "";
+          "7" = "";
+          "8" = "";
+          "9" = "";
+          "10" = "";
+          "urgent" = "";
+          "focused" = "";
+          "default" = "";
+        };
+
+        "persistent_workspaces" = {
+          "1" = [];
+          "2" = [];
+          "3" = [];
+          "4" = [];
+          "5" = [];
+          "6" = [];
+          "7" = [];
+          "8" = [];
+          "9" = [];
+          "10" = [];
         };
       };
 
@@ -143,7 +166,6 @@
         };
         escape = true;
         exec = "$HOME/.config/waybar/mediaplayer.py 2> /dev/null"; # Script in resources folder
-        # exec = "$HOME/.config/waybar/mediaplayer.py --player spotify 2> /dev/null"; # Filter player based on name
       };
     };
   };
