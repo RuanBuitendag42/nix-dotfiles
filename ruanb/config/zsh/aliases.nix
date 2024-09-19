@@ -12,9 +12,9 @@
       icat = "kitten icat";
       v = "nvim";
 
-      # ZSH
-      vzsh = "nvim ~/.zshrc";
       reload = "source ~/.zshrc";
+
+      stowNvim = "cp ~/.config/nvim/init.lua ~/Dev/github/ruanb/nix-nvim/";
 
       # NIXOS utils
       nixsw = "sudo nixos-rebuild switch --flake ~/Dev/github/ruanb/nix-dotfiles";

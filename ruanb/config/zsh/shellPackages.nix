@@ -15,5 +15,6 @@
     fd
     direnv
     nix-direnv
+    stow
   ];
 }

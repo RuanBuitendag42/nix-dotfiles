@@ -24,9 +24,9 @@
           "│"
         ];
         floating_window_scaling_factor = 0.9;
-        floating_window_use_plenary = false;
+        floating_window_use_plenary = 1;
         floating_window_winblend = 10;
-        use_neovim_remote = true;
+        use_neovim_remote = 1;
       };
     };
   };

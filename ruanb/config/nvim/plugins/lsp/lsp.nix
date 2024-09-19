@@ -12,6 +12,18 @@
         pylsp = {
           enable = true;
         };
+        jsonls = {
+          enable = true;
+        };
+        terraformls = {
+          enable = true;
+        };
+        ts-ls = {
+          enable = true;
+        };
+        vuels = {
+          enable = true;
+        };
       };
       keymaps = {
         silent = true;
