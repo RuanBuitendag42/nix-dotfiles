@@ -5,6 +5,7 @@
     ./kitty/kitty.nix
     ./rofi/rofi.nix
     ./waybar/waybar.nix
+    ./tmux/tmux.nix
     ./zsh/zsh.nix
     ./nvim/default.nix
   ];
