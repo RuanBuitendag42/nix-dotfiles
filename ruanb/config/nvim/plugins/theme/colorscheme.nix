@@ -6,6 +6,11 @@
         enable = true;
         settings = {
           flavour = "mocha";
+          default_integrations = true;
+          integrations = {
+            lualine = true;
+          };
+          term_colors = true;
         };
       };
 
