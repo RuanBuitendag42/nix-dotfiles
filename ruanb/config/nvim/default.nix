@@ -25,6 +25,7 @@
     ./plugins/nvim-cmp.nix
     ./plugins/telescope.nix
     ./plugins/treesitter.nix
+    ./plugins/vim-tmux-navigator.nix
     ./plugins/which-key.nix
 
     ./custom-plugins.nix
