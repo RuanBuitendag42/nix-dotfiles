@@ -78,11 +78,6 @@
 
   fonts = {
     enableDefaultPackages = true;
-    packages = with pkgs; [
-      (nerdfonts.override {
-        fonts = ["FiraCode"];
-      })
-    ];
   };
 
   # Allow unfree packages

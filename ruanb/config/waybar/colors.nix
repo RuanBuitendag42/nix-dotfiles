@@ -5,13 +5,6 @@
       css
       */
       ''
-        /*
-        *
-        * Catppuccin Mocha palette
-        * Maintainer: rubyowo
-        *
-        */
-
         @define-color base   #1e1e2e;
         @define-color mantle #181825;
         @define-color crust  #11111b;
@@ -43,21 +36,11 @@
         @define-color flamingo  #f2cdcd;
         @define-color rosewater #f5e0dc;
 
-        * {
-            /* `otf-font-awesome` is required to be installed for icons */
-            font-family: FiraCode Nerd Font;
-            font-size: 14px;
-        }
-
         window#waybar {
             background-color: #1E1E2E;
             color: #ffffff;
             /*transition-property: background-color;*/
             transition-duration: .5s;
-        }
-
-        window#waybar.hidden {
-            opacity: 0.2;
         }
 
         /*
@@ -69,32 +52,13 @@
         }
         */
 
-        window#waybar.termite {
-            background-color: #3F3F3F;
-        }
-
-        window#waybar.chromium {
-            background-color: #000000;
-            border: none;
-        }
-
-        button {
-            /* Use box-shadow instead of border so the text isn't offset */
-            box-shadow: inset 0 -3px transparent;
-            /* Avoid rounded borders under each button name */
-            border: none;
-            border-radius: 0;
-        }
-
         /* https://github.com/Alexays/Waybar/wiki/FAQ#the-workspace-buttons-have-a-strange-hover-effect */
 
         #workspaces button {
-            padding: 0 5px;
-            border-radius: 5em / 5em;
+            padding: 0 0.5em;
             background-color: @surface0;
             color: @teal;
-            margin: 2px;
-            font-weight: bold;
+            margin: 0.25em;
         }
 
 
@@ -122,8 +86,8 @@
             margin: 0 4px;
             background-color: transparent;
             font-weight:bold;
-            border-radius: 5em / 5em;
-            padding: 0 10px;
+            /*border-radius: 5em / 5em;*/
+            /*padding: 0 10px;*/
             color: @teal;
         }
 

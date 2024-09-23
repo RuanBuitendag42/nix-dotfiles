@@ -10,8 +10,8 @@
 
     fonts = {
       monospace = {
-        package = pkgs.nerdfonts.override {fonts = ["JetBrainsMono"];};
-        name = "JetBrainsMono Nerd Font Mono";
+        package = pkgs.nerdfonts.override {fonts = ["FiraCode"];};
+        name = "FiraCode Nerd Font Mono";
       };
       sansSerif = {
         package = pkgs.dejavu_fonts;
@@ -31,10 +31,10 @@
     };
 
     opacity = {
-      applications = 1.0;
+      applications = 0.98;
       terminal = 0.98;
-      desktop = 1.0;
-      popups = 1.0;
+      desktop = 0.98;
+      popups = 0.98;
     };
 
     polarity = "dark"; # "light" or "either"
