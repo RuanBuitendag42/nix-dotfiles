@@ -18,6 +18,8 @@
     };
   };
 
+  # wayland.windowManager.hyprland.catppuccin.enable = true;
+
   programs = {
     bat.catppuccin.enable = true;
     fzf.catppuccin.enable = true;

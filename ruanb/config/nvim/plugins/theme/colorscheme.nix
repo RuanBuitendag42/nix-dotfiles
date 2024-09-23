@@ -3,7 +3,7 @@
     colorschemes = {
       # https://nix-community.github.io/nixvim/colorschemes/catppuccin/index.html
       catppuccin = {
-        enable = true;
+        enable = false;
         settings = {
           flavour = "mocha";
           default_integrations = true;

@@ -1,5 +1,4 @@
 {
-  wayland.windowManager.hyprland.catppuccin.enable = true;
   wayland.windowManager.hyprland.settings = {
     "monitor" = ",2560x1440@144,0x0,1";
     # Refer to https://wiki.hyprland.org/Configuring/Variables/
