@@ -2,7 +2,7 @@
   imports = [
     ./aliases.nix
     ./shellPackages.nix
-    ./prezto.nix
+    ./omz.nix
   ];
   programs.zsh = {
     enable = true;
