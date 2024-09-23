@@ -1,10 +1,22 @@
-{
+{inputs, ...}: {
+  imports = [inputs.catppuccin.homeManagerModules.catppuccin];
+
   catppuccin = {
     enable = true;
     flavor = "mocha";
+    accent = "teal";
   };
 
-  gtk.catppuccin.enable = true;
+  gtk = {
+    enable = true;
+    catppuccin = {
+      enable = true;
+      flavor = "mocha";
+      accent = "teal";
+      size = "standard";
+      tweaks = ["normal"];
+    };
+  };
 
   programs = {
     bat.catppuccin.enable = true;
