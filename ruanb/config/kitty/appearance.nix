@@ -1,11 +1,11 @@
 {
   programs.kitty = {
     # theme = "Catppuccin-Mocha";
-    font = {
-      name = "FiraCode Nerd Font";
-    };
+    # font = {
+    #   name = "FiraCode Nerd Font";
+    # };
     settings = {
-      background_opacity = "0.95";
+      # background_opacity = "0.95";
       window_padding_width = 10;
       window_padding_height = 10;
 

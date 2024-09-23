@@ -291,7 +291,24 @@
         "home-manager": "home-manager",
         "nixpkgs": "nixpkgs",
         "nixvim": "nixvim",
-        "nvim-lsp-file-operations": "nvim-lsp-file-operations"
+        "nvim-lsp-file-operations": "nvim-lsp-file-operations",
+        "stylix": "stylix"
+      }
+    },
+    "stylix": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1726828291,
+        "narHash": "sha256-pGRPVVm7UXf+fx2NVpH6FFSWR9AynG6eoVlagaqH9i4=",
+        "owner": "danth",
+        "repo": "stylix",
+        "rev": "53bcceb4e46d0b3e8ae6434a7a6bcc3463092093",
+        "type": "github"
+      },
+      "original": {
+        "owner": "danth",
+        "repo": "stylix",
+        "type": "github"
       }
     },
     "systems": {

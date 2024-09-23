@@ -8,6 +8,10 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     catppuccin.url = "github:catppuccin/nix";
+    stylix = {
+      url = "github:danth/stylix";
+      flake = false;
+    };
     nixvim = {
       url = "github:nix-community/nixvim";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -24,6 +28,7 @@
     catppuccin,
     nixvim,
     nvim-lsp-file-operations,
+    stylix,
     ...
   } @ inputs: let
     system = "x86_64-linux";

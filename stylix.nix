@@ -1,10 +1,9 @@
-{pkgs, ...}: let
-  stylix = {
-    url = "github:danth/stylix";
-    flake = false;
-  };
-in {
-  imports = [(import stylix).nixosModules.stylix];
+{
+  pkgs,
+  inputs,
+  ...
+}: {
+  imports = [(import inputs.stylix).nixosModules.stylix];
   stylix = {
     enable = true;
     image = /home/ruanb/Pictures/Wallpapers/jdm_toyota.jpg;
