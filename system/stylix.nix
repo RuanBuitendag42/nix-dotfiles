@@ -1,3 +1,3 @@
-{pkgs, ...}: {
+{
   stylix.enable = true;
 }
