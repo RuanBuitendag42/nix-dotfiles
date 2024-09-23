@@ -38,6 +38,7 @@
       inherit pkgs;
       modules = [
         ./ruanb/home.nix
+        (import inputs.stylix).homeManagerModules.stylix
       ];
       extraSpecialArgs = {
         inherit inputs;
@@ -50,6 +51,7 @@
       };
       modules = [
         ./system/configuration.nix
+        (import inputs.stylix).nixosModules.stylix
       ];
     };
   };
