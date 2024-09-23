@@ -1,9 +1,8 @@
-{ config, pkgs, lib, ... }:
-{
+{pkgs, ...}: {
   imports = [
     ./aliases.nix
-    # ./plugins.nix
     ./shellPackages.nix
+    ./prezto.nix
   ];
   programs.zsh = {
     enable = true;
