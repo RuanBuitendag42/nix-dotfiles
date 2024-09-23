@@ -1,4 +1,10 @@
-{pkgs, ...}: {
+{pkgs, ...}: let
+  stylix = {
+    url = "github:danth/stylix";
+    flake = false;
+  };
+in {
+  imports = [(import stylix).homeManagerModules.stylix];
   stylix = {
     enable = true;
     image = /home/ruanb/Pictures/Wallpapers/jdm_toyota.jpg;

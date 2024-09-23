@@ -1,7 +1,7 @@
 {pkgs, ...}: {
   imports = [
     ./hardware-configuration.nix
-    ./stylix.nix
+    ../stylix.nix
   ];
 
   # Bootloader.

@@ -2,6 +2,7 @@
   imports = [
     ./config/config.nix
     ./config/scripts.nix
+    ../stylix.nix
   ];
 
   home.username = "ruanb";
