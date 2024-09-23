@@ -18,11 +18,21 @@
     tree
     bat
     fzf
+    zsh-fzf-tab
     zoxide
     eza
     fd
     direnv
     nix-direnv
     stow
+    htop
+    tldr
+    thefuck
+
+    ### Work
+    awscli2
+    kubectl
+    kubectx
+    k9s
   ];
 }

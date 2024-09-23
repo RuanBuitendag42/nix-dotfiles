@@ -2,7 +2,7 @@
   programs.zsh = {
     shellAliases = {
       # cmd utils
-      ".." = "cd ..";
+      "\"..\"" = "cd ..";
       ls = "eza --color";
       l = "eza -l";
       ll = "eza -la";
