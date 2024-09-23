@@ -8,6 +8,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     catppuccin.url = "github:catppuccin/nix";
+    stylix.url = "github:danth/stylix";
     nixvim = {
       url = "github:nix-community/nixvim";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -33,7 +34,6 @@
       inherit pkgs;
       modules = [
         ./ruanb/home.nix
-        catppuccin.homeManagerModules.catppuccin
       ];
       extraSpecialArgs = {
         inherit inputs;
@@ -44,7 +44,10 @@
         inherit system;
         inherit inputs;
       };
-      modules = [./system/configuration.nix];
+      modules = [
+        ./system/configuration.nix
+        inputs.stylix.nixosModules.stylix
+      ];
     };
   };
 }

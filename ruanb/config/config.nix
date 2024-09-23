@@ -1,6 +1,7 @@
 {
   imports = [
-    ./catppuccin/catppuccin.nix
+    # ./catppuccin/catppuccin.nix
+    ./stylix/stylix.nix
     ./hypr/hyprland.nix
     ./kitty/kitty.nix
     ./rofi/rofi.nix
