@@ -14,9 +14,9 @@
 
   # Automount external drive
   fileSystems."/mnt/data" = {
-    device = "/dev/disk/by-uuid/F8C2987BC2983FB4";
-    fsType = "ntfs3";
-    options = ["defaults" "noatime" "uid=1000" "gid=1000"];
+    device = "/dev/disk/by-uuid/48211d70-3cce-48cc-b37f-ebc9eb869079";
+    fsType = "ext4";
+    # options = ["defaults" "noatime" "uid=1000" "gid=1000"];
   };
 
   networking = {
@@ -51,6 +51,7 @@
     ];
     config.commen.default = "*";
   };
+  programs.dconf.enable = true;
 
   # Enable sound with pipewire.
   hardware.pulseaudio.enable = false;
@@ -98,6 +99,7 @@
     cl
     zig
     cage
+    gparted
 
     gh
   ];
