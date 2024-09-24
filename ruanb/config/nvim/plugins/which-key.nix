@@ -24,6 +24,10 @@
             __unkeyed-1 = "<leader>g";
             group = "Git Actions";
           }
+          {
+            __unkeyed-1 = "<leader>t";
+            group = "Test";
+          }
         ];
       };
     };

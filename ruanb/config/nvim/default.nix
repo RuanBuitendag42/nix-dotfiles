@@ -22,11 +22,11 @@
     ./plugins/lazygit.nix
     ./plugins/mini.nix
     ./plugins/neo-tree.nix
-    ./plugins/neotest.nix
     ./plugins/nvim-cmp.nix
     ./plugins/telescope.nix
     ./plugins/treesitter.nix
     ./plugins/vim-tmux-navigator.nix
+    ./plugins/vimtest.nix
     ./plugins/which-key.nix
 
     ./custom-plugins.nix

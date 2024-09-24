@@ -64,44 +64,6 @@
           desc = "Move focus to the upper window";
         };
       }
-
-      ### TABS ###
-      {
-        action = "<cmd>close<CR>";
-        key = "<leader>sx";
-        mode = "n";
-        options.desc = "Close current split";
-      }
-      {
-        action = "<cmd>tabnew<CR>";
-        key = "<leader>to";
-        mode = "n";
-        options.desc = "Open new tab";
-      }
-      {
-        action = "<cmd>tabclose<CR>";
-        key = "<leader>tx";
-        mode = "n";
-        options.desc = "Close current tab";
-      }
-      {
-        action = "<cmd>tabn<CR>";
-        key = "<leader>tn";
-        mode = "n";
-        options.desc = "Go to next tab";
-      }
-      {
-        action = "<cmd>tab[]<CR>";
-        key = "<leader>tp";
-        mode = "n";
-        options.desc = "Go to previous tab";
-      }
-      {
-        action = "<cmd>tabnew %<CR>";
-        key = "<leader>tf";
-        mode = "n";
-        options.desc = "Open current buffer in new tab";
-      }
     ];
   };
 }
