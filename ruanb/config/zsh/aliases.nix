@@ -18,8 +18,10 @@
       wallpaper = "~/.config/swww/scripts/changeWallpaper.sh";
 
       # NIXOS utils
-      nixsw = "sudo nixos-rebuild switch --flake ~/Dev/github/ruanb/nix-dotfiles";
-      hmsw = "home-manager switch --flake ~/Dev/github/ruanb/nix-dotfiles";
+      nhs = "nh os switch";
+      nhc = "nh clean all --keep 5";
+      nhsboot = "nh os boot";
+      hmsw = "nh home switch";
     };
   };
 }

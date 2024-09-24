@@ -86,6 +86,11 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
+    ### NixOS
+    nh
+    nix-output-monitor
+    nvd
+
     ### HOME-MANAGER ###
     home-manager
 

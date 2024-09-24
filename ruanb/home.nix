@@ -12,6 +12,9 @@
     allowUnfree = true;
     allowUnsupportedSystem = true;
   };
+  home.sessionVariables = {
+    FLAKE = "/home/ruanb/Dev/github/ruanb/nix-dotfiles";
+  };
 
   services.cliphist.enable = true;
   fonts.fontconfig.enable = true;
