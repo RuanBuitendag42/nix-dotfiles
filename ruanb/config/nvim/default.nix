@@ -22,6 +22,7 @@
     ./plugins/lazygit.nix
     ./plugins/mini.nix
     ./plugins/neo-tree.nix
+    ./plugins/neotest.nix
     ./plugins/nvim-cmp.nix
     ./plugins/telescope.nix
     ./plugins/treesitter.nix
