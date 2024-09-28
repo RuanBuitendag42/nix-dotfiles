@@ -13,17 +13,14 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({
-  { import = "ruan.plugins" },
-  { import = "ruan.plugins.lsp" },
-  { import = "ruan.plugins.colorscheme" }
+  { import = "ruanb.plugins" },
+  { import = "ruanb.plugins.lsp" },
+  { import = "ruanb.plugins.colorscheme" }
 }, {
-  checker = {
-    enabled = true,
-    notify = false,
-  },
-  change_detection = {
-    notify = false,
-  },
+  rocks = { enabled = false },
+  dev = {
+      path = "~/.local/share/nvim/nix",
+      fallback = false,
+  }
 })
-
 
