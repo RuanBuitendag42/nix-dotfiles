@@ -101,6 +101,7 @@
     zig
     cage
     gparted
+    make
 
     gh
   ];

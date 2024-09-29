@@ -14,8 +14,9 @@ vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({
   { import = "ruanb.plugins" },
-  { import = "ruanb.plugins.lsp" },
-  { import = "ruanb.plugins.colorscheme" }
+  { import = "ruanb.plugins.lsp.mason" },
+  { import = "ruanb.plugins.lsp.lspconfig" },
+  { import = "ruanb.plugins.colorscheme.catppuccin" }
 }, {
   rocks = { enabled = false },
   dev = {

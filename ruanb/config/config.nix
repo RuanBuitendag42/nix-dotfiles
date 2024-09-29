@@ -7,7 +7,7 @@
     ./tmux/tmux.nix
     ./zsh/zsh.nix
     ./nvim/nvim.nix
-    # ./nvim/default.nix
+    ./stylix/stylix.nix
   ];
   home.file = {
     ".config/neofetch/config.conf" = {

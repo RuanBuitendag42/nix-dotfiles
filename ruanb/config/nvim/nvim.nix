@@ -44,6 +44,7 @@ in
     ''
       require("ruanb.core.keymaps")
       require("ruanb.core.options")
+      require("ruanb.lazy")
       vim.opt.runtimepath:append("${treesitter-parsers}")
     '';
   };

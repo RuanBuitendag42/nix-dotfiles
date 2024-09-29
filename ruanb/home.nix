@@ -27,6 +27,7 @@
     nautilus
     pavucontrol
     thunderbird
+    libreoffice
 
     ### HYPRLAND ###
     waybar
