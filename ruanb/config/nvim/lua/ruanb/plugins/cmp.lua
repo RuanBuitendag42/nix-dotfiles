@@ -1,7 +1,7 @@
 return {
 	"hrsh7th/nvim-cmp",
   event = "InsertEnter",
-	requires = {
+	dependencies = {
 		"hrsh7th/cmp-nvim-lsp", -- LSP source for nvim-cmp
 		"hrsh7th/cmp-buffer", -- Buffer completions
 		"hrsh7th/cmp-path", -- Path completions
@@ -17,8 +17,14 @@ return {
 		local luasnip = require("luasnip")
 		local lspkind = require("lspkind")
 
+    -- loads vscode style snippets from installed plugins (e.g. friendly-snippets)
+    require("luasnip.loaders.from_vscode").lazy_load()
+
 		-- Setup nvim-cmp
 		cmp.setup({
+      completion = {
+        completeopt = "menu,menuone,preview,noselect",
+      },
 			snippet = {
 				expand = function(args)
 					luasnip.lsp_expand(args.body) -- For LuaSnip users
@@ -36,7 +42,6 @@ return {
 			sources = cmp.config.sources({
 				{ name = "nvim_lsp" }, -- LSP source
 				{ name = "luasnip" }, -- Snippet source
-			}, {
 				{ name = "buffer" }, -- Buffer source
 				{ name = "path" }, -- Path source
 			}),

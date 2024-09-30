@@ -2,6 +2,7 @@
   imports = [
     ./config/config.nix
     ./config/scripts.nix
+    ./fhs.nix
     ../stylix.nix
   ];
 
