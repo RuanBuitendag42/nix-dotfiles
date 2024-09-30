@@ -1,4 +1,4 @@
-{pkgs, ...}: {
+{ pkgs, ... }: {
   imports = [
     ./aliases.nix
     ./shellPackages.nix
@@ -15,7 +15,10 @@
       sh
       */
       ''
-        neofetch
+        if command -v tmux &> /dev/null && [ -z "$TMUX" ]; then
+          tmux attach-session -t default || tmux new-session -s default
+        fi
+
         source ${pkgs.zsh-powerlevel10k}/share/zsh-powerlevel10k/powerlevel10k.zsh-theme
         # Set the directory we want to store zinit and plugins
         ZINIT_HOME="''${XDG_DATA_HOME:-''${HOME}/.local/share}/zinit/zinit.git"
