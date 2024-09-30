@@ -12,6 +12,8 @@ return {
 				telescope = true, -- Telescope integration
 				neotree = true, -- Neo-tree integration
 				cmp = true, -- nvim-cmp integration
+				mason = true,
+				which_key = true,
 			},
 		})
 
