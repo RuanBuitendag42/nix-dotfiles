@@ -5,6 +5,7 @@ return {
 			ensure_installed = {
 				"bash",
 				"lua",
+				"vim",
 				"python",
 				"javascript",
 				"html",
@@ -12,6 +13,7 @@ return {
 				"json",
 				"markdown",
 				"typescript", -- Add languages you want
+				"nix",
 			},
 			highlight = {
 				enable = true, -- Enable syntax highlighting

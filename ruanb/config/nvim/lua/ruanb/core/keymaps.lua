@@ -1,7 +1,7 @@
 -- Keymap helper function
 local function map(mode, key, action, opts)
-  local options = { noremap = true, silent = true, desc = opts.desc or "" }
-  vim.api.nvim_set_keymap(mode, key, action, options)
+	local options = { noremap = true, silent = true, desc = opts.desc or "" }
+	vim.api.nvim_set_keymap(mode, key, action, options)
 end
 
 -- Key mappings
@@ -18,4 +18,8 @@ map("n", "<C-l>", "<C-w><C-l>", { desc = "Move focus to the right window" })
 map("n", "<C-j>", "<C-w><C-j>", { desc = "Move focus to the lower window" })
 map("n", "<C-k>", "<C-w><C-k>", { desc = "Move focus to the upper window" })
 
-map("n", "<C-s>", "<cmd>w<CR>", { desc = "Save current buffer" })
+map("n", "<leader>to", "<cmd>tabnew<CR>", { desc = "Open new tab" }) -- open new tab
+map("n", "<leader>tx", "<cmd>tabclose<CR>", { desc = "Close current tab" }) -- close current tab
+map("n", "<leader>tn", "<cmd>tabn<CR>", { desc = "Go to next tab" }) --  go to next tab
+map("n", "<leader>tp", "<cmd>tabp<CR>", { desc = "Go to previous tab" }) --  go to previous tab
+map("n", "<leader>tf", "<cmd>tabnew %<CR>", { desc = "Open current buffer in new tab" }) --  move current buffer to new tab

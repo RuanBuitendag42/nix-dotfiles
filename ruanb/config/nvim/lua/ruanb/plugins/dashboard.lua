@@ -45,7 +45,7 @@ return {
 		vim.g.dashboard_default_executive = "telescope"
 
 		require("dashboard").setup({
-			theme = "doom", -- Using the 'doom' theme for the dashboard
+			theme = "hyper", -- Using the 'doom' theme for the dashboard
 			config = {
 				header = custom_header,
 			},

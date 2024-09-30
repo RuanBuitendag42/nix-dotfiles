@@ -1,4 +1,7 @@
-{pkgs,config,...}:
+{ pkgs
+, config
+, ...
+}:
 {
   programs.neovim = {
     enable = true;
@@ -32,23 +35,18 @@
       fd
       cargo
       gnumake
-
-      # linters
-      # black
-      # eslint_d
-      # stylua
-      # isort
-      # pylint
+      unzip
+      python3
     ];
-    extraLuaConfig = # lua
-    ''
-      require("ruanb.core.keymaps")
-      require("ruanb.core.options")
-      require("ruanb.lazy")
-    '';
   };
 
   home.file = {
+    ".config/nvim/init.lua".text = # lua
+      ''
+        require("ruanb.core.keymaps")
+        require("ruanb.core.options")
+        require("ruanb.lazy")
+      '';
     ".config/nvim/lua/" = {
       source = config.lib.file.mkOutOfStoreSymlink "/home/ruanb/Dev/github/ruanb/nix-dotfiles/ruanb/config/nvim/lua";
       recursive = true;

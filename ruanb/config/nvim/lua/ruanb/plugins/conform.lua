@@ -1,20 +1,40 @@
 return {
 	"stevearc/conform.nvim",
+	event = { "BufReadPre", "BufNewFile" },
 	config = function()
-		require("conform").setup({
-			formatters = {
-				-- Example formatters you can set up
-				lua = { "stylua" }, -- Lua formatting with stylua
-				javascript = { "prettier" }, -- JavaScript formatting with prettier
-				python = { "black" }, -- Python formatting with black
-				nix = { "nixpkgs-fmt" }, -- Nix formatting with nixpkgs-fmt
-				-- Add more formatters as needed
+		local conform = require("conform")
+
+		conform.setup({
+			formatters_by_ft = {
+				javascript = { "prettier" },
+				typescript = { "prettier" },
+				javascriptreact = { "prettier" },
+				typescriptreact = { "prettier" },
+				svelte = { "prettier" },
+				css = { "prettier" },
+				html = { "prettier" },
+				json = { "prettier" },
+				yaml = { "prettier" },
+				markdown = { "prettier" },
+				graphql = { "prettier" },
+				liquid = { "prettier" },
+				lua = { "stylua" },
+				python = { "isort", "black" },
+				nix = { "alejandra", "nixpkgs_fmt" },
 			},
 			format_on_save = {
-				enabled = true, -- Enable formatting on save
-				timeout = 1000, -- Timeout for formatting
+				lsp_fallback = true,
+				async = false,
+				timeout_ms = 1000,
 			},
-			-- Additional configurations can go here
 		})
+
+		vim.keymap.set({ "n", "v" }, "<leader>mp", function()
+			conform.format({
+				lsp_fallback = true,
+				async = false,
+				timeout_ms = 1000,
+			})
+		end, { desc = "Format file or range (in visual mode)" })
 	end,
 }

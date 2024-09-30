@@ -2,15 +2,15 @@ return {
 	"nvim-telescope/telescope.nvim",
 	dependencies = {
 		{ "nvim-lua/plenary.nvim" },
-    {
-        'nvim-telescope/telescope-fzf-native.nvim',
-        -- NOTE: If you are having trouble with this installation,
-        --       refer to the README for telescope-fzf-native for more instructions.
-        build = 'make',
-        cond = function()
-          return vim.fn.executable 'make' == 1
-        end,
-      },
+		{
+			"nvim-telescope/telescope-fzf-native.nvim",
+			-- NOTE: If you are having trouble with this installation,
+			--       refer to the README for telescope-fzf-native for more instructions.
+			build = "make",
+			cond = function()
+				return vim.fn.executable("make") == 1
+			end,
+		},
 		{ "nvim-telescope/telescope-ui-select.nvim" },
 	},
 	config = function()
@@ -53,5 +53,6 @@ return {
 		keymap("n", "<leader>fr", "<cmd>Telescope resume<CR>", opts) -- Resume Last Search
 		keymap("n", "<leader>fo", "<cmd>Telescope oldfiles<CR>", opts) -- Search Recent Files
 		keymap("n", "<leader><leader>", "<cmd>Telescope buffers<CR>", opts) -- Find Existing Buffers
+		keymap("n", "<leader>ft", "<cmd>TodoTelescope<cr>", { desc = "Find todos" }) -- Find Todos
 	end,
 }
