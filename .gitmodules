@@ -1,3 +1,0 @@
-[submodule "nvim"]
-	path = ruanb/config/nvim
-	url = https://github.com/RuanBuitendag42/nvim
