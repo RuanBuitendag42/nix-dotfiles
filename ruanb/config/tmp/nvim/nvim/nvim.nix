@@ -29,6 +29,10 @@
       "${lib.makeSearchPathOutput "dev" "lib/pkgconfig" [stdenv.cc.cc zlib]}"
     ];
 
+    plugins = with pkgs.vimPlugins; [
+      base16-vim
+    ];
+
     extraPackages = with pkgs; [
       # Runtime dependencies
       ripgrep
@@ -38,15 +42,16 @@
       unzip
       python3
     ];
-  };
 
-  home.file = {
-    ".config/nvim/init.lua".text = # lua
+    extraLuaConfig = # lua
       ''
         require("ruanb.core.keymaps")
         require("ruanb.core.options")
         require("ruanb.lazy")
       '';
+  };
+
+  home.file = {
     ".config/nvim/lua/" = {
       source = config.lib.file.mkOutOfStoreSymlink "/home/ruanb/Dev/github/ruanb/nix-dotfiles/ruanb/config/nvim/lua";
       recursive = true;

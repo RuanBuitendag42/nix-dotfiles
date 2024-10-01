@@ -2,6 +2,11 @@
   programs.tmux = {
     plugins = with pkgs.tmuxPlugins; [
       vim-tmux-navigator
+      sensible
+      yank
+      continuum
+      resurrect
+      tmux-fzf
       {
         plugin = catppuccin;
         extraConfig =
@@ -18,7 +23,7 @@
             set -g @catppuccin_window_default_text "#W"
 
             set -g @catppuccin_window_current_fill "number"
-            set -g @catppuccin_window_current_text "#W"
+            set -g @catppuccin_window_current_text "#W#{?window_zoomed_flag,(󰛭),}"
 
             set -g @catppuccin_status_modules_right "directory session"
             set -g @catppuccin_status_left_separator  " "

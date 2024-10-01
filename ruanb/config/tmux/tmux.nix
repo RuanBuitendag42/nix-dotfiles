@@ -9,5 +9,8 @@
     newSession = false;
     keyMode = "vi";
     mouse = true;
+    baseIndex = 1;
+    escapeTime = 0;
+    historyLimit = 1000000;
   };
 }
