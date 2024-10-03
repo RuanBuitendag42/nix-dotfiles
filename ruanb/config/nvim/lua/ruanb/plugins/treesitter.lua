@@ -12,6 +12,7 @@ return {
 				"css",
 				"json",
 				"markdown",
+				"markdown_inline",
 				"typescript", -- Add languages you want
 				"nix",
 				"java",

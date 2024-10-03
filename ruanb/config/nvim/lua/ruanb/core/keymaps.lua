@@ -23,3 +23,9 @@ map("n", "<leader>tx", "<cmd>tabclose<CR>", { desc = "Close current tab" }) -- c
 map("n", "<leader>tn", "<cmd>tabn<CR>", { desc = "Go to next tab" }) --  go to next tab
 map("n", "<leader>tp", "<cmd>tabp<CR>", { desc = "Go to previous tab" }) --  go to previous tab
 map("n", "<leader>tf", "<cmd>tabnew %<CR>", { desc = "Open current buffer in new tab" }) --  move current buffer to new tab
+
+-- adjust pane size vertically and horizontally
+map("n", "<C-Up>", ":resize -2<CR>", { desc = "Resize pane smaller" })
+map("n", "<C-Down>", ":resize +2<CR>", { desc = "Resize pane larger" })
+map("n", "<C-Left>", ":vertical resize -2<CR>", { desc = "Resize pane smaller vertically" })
+map("n", "<C-Right>", ":vertical resize +2<CR>", { desc = "Resize pane larger vertically" })

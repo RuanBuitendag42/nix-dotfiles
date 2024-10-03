@@ -1,4 +1,4 @@
-{pkgs, ...}: {
+{ pkgs, ... }: {
   imports = [
     ./config/config.nix
     ./config/scripts.nix
@@ -28,6 +28,7 @@
     pavucontrol
     thunderbird
     libreoffice
+    obsidian
 
     ### HYPRLAND ###
     waybar
@@ -40,7 +41,7 @@
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
   # plain files is through 'home.file'.
-  home.file = {};
+  home.file = { };
 
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
