@@ -41,19 +41,22 @@
       gnumake
       unzip
       python3
+
+      # Nix LSP
+      alejandra
     ];
 
-    extraLuaConfig = # lua
-      ''
-        require("ruanb.core.keymaps")
-        require("ruanb.core.options")
-        require("ruanb.lazy")
-      '';
+    # extraLuaConfig = # lua
+    #   ''
+    #     require("ruanb.core.keymaps")
+    #     require("ruanb.core.options")
+    #     require("ruanb.lazy")
+    #   '';
   };
 
   home.file = {
-    ".config/nvim/lua/" = {
-      source = config.lib.file.mkOutOfStoreSymlink "/home/ruanb/Dev/github/ruanb/nix-dotfiles/ruanb/config/nvim/lua";
+    ".config/nvim/" = {
+      source = config.lib.file.mkOutOfStoreSymlink "/home/ruanb/.config/nix-dotfiles/ruanb/config/nvim/lazyvim";
       recursive = true;
     };
   };

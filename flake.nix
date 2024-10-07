@@ -12,22 +12,12 @@
       url = "github:danth/stylix";
       flake = false;
     };
-    nixvim = {
-      url = "github:nix-community/nixvim";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-    nvim-lsp-file-operations = {
-      url = "github:antosha417/nvim-lsp-file-operations";
-      flake = false;
-    };
   };
 
   outputs = {
     nixpkgs,
     home-manager,
     catppuccin,
-    nixvim,
-    nvim-lsp-file-operations,
     stylix,
     ...
   } @ inputs: let

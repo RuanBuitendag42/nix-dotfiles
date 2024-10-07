@@ -13,7 +13,7 @@
     allowUnsupportedSystem = true;
   };
   home.sessionVariables = {
-    FLAKE = "/home/ruanb/Dev/github/ruanb/nix-dotfiles";
+    FLAKE = "/home/ruanb/.config/nix-dotfiles";
   };
 
   services.cliphist.enable = true;
