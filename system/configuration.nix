@@ -72,7 +72,7 @@
     users.ruanb = {
       isNormalUser = true;
       description = "Ruan Buitendag";
-      extraGroups = ["networkmanager" "wheel"];
+      extraGroups = ["networkmanager" "wheel" "adbusers" "docker" "plugdev" "audio" "video" "sound"];
     };
     defaultUserShell = pkgs.zsh;
   };
