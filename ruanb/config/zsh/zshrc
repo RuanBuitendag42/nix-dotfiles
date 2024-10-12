@@ -6,6 +6,30 @@ bindkey '^p' history-search-backward
 bindkey '^n' history-search-forward
 bindkey '^[w' kill-region
 
+# Check if the current directory is a project (has .git, flake.nix, or package.json)
+# Ignore specific Nix configuration directories (adjust the path as necessary)
+is_project_directory() {
+  # Define your Nix configuration paths
+  local nix_flake_path="$HOME/.config/nix-dotfiles/flake.nix"
+  local home_manager_path="$HOME/.config/nixpkgs"
+
+  [[ "$PWD" != "$nix_flake_path" ]] && \
+  [[ "$PWD" != "$home_manager_path" ]] && \
+  ([[ -d "$PWD/.git" ]] || [[ -f "$PWD/flake.nix" ]] || [[ -f "$PWD/package.json" ]])
+}
+
+# Add a hook to check for .envrc and apply global fallback if it's a project directory
+check_global_envrc() {
+  if is_project_directory && [[ ! -f "$PWD/.envrc" ]]; then
+    # Load the global fallback .envrc
+    direnv allow ~/.config/direnv/default-env/.envrc
+  fi
+}
+
+# Automatically run the check_global_envrc function when changing directories
+add-zsh-hook chpwd check_global_envrc
+
+
 # Shell integrations
 eval "$(fzf --zsh)"
 eval "$(zoxide init --cmd cd zsh)"

@@ -1,5 +1,6 @@
-{config,...}: {
+{
   imports = [
+    ./direnv/direnv.nix
     ./hypr/hyprland.nix
     ./kitty/kitty.nix
     ./rofi/rofi.nix
