@@ -1,6 +1,6 @@
 {
   wayland.windowManager.hyprland.settings = {
-    "monitor" = ",2560x1440@144,0x0,1";
+    "monitor" = "HDMI-A-1,2560x1440@143.91,0x0,1";
     # Refer to https://wiki.hyprland.org/Configuring/Variables/
 
     general = {

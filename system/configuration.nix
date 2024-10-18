@@ -2,6 +2,7 @@
   imports = [
     ./hardware-configuration.nix
     ./fhs.nix
+    ./usb.nix
     ../stylix.nix
   ];
 
@@ -11,7 +12,6 @@
       systemd-boot.enable = true;
       efi.canTouchEfiVariables = true;
     };
-    kernelModules = ["ntfs3"];
   };
 
   # Automount external drive
