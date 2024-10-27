@@ -1,8 +1,8 @@
-{ pkgs
-, config
-, ...
-}:
 {
+  pkgs,
+  config,
+  ...
+}: {
   programs.neovim = {
     enable = true;
     withNodeJs = true;
@@ -56,9 +56,8 @@
 
   home.file = {
     ".config/nvim/" = {
-      source = config.lib.file.mkOutOfStoreSymlink "/home/ruanb/.config/nix-dotfiles/ruanb/config/nvim/lazyvim";
+      source = config.lib.file.mkOutOfStoreSymlink "/home/ruanb/.config/nix-dotfiles/ruanb/config/nvim";
       recursive = true;
     };
   };
 }
-

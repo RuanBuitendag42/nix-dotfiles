@@ -102,6 +102,7 @@
     zig
     cage
     gparted
+    nodejs
 
     gh
   ];

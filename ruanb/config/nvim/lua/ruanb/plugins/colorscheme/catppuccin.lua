@@ -3,8 +3,9 @@ return {
 	name = "catppuccin",
 	config = function()
 		require("catppuccin").setup({
-			flavour = "mocha", -- Choose the Mocha variant
-			background = { dark = "mocha" }, -- Set background to mocha for dark mode
+			flavour = "macchiato", -- latte, frappe, macchiato, mocha
+			background = { dark = "macchiato", light = "latte" }, -- darker, cooler, lighter, warmer, macchiato, frappe
+			transparent_background = true,
 			integrations = {
 				treesitter = true, -- Integrate with Treesitter
 				lsp_trouble = true, -- Integrate with LSP trouble
