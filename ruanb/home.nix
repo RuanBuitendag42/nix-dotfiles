@@ -30,6 +30,10 @@
     libreoffice
     obsidian
     whatsapp-for-linux
+    okular
+
+    # image viewer
+    qimgv
 
     ### HYPRLAND ###
     waybar
