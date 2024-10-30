@@ -1,4 +1,7 @@
-{pkgs, ...}: {
+{ pkgs
+, inputs
+, ...
+}: {
   imports = [
     ./config/config.nix
     ./config/scripts.nix
@@ -21,16 +24,14 @@
   home.packages = with pkgs; [
     ### PROGRAMS ###
     spotify
-    spotify-tray
-    firefox
     vesktop
     nautilus
     pavucontrol
     thunderbird
     libreoffice
     obsidian
-    whatsapp-for-linux
     okular
+    inputs.zen-browser.packages."${system}".default
 
     # image viewer
     qimgv
@@ -46,7 +47,7 @@
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
   # plain files is through 'home.file'.
-  home.file = {};
+  home.file = { };
 
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;

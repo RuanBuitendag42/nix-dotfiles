@@ -12,37 +12,40 @@
       url = "github:danth/stylix";
       flake = false;
     };
+    zen-browser.url = "github:MarceColl/zen-browser-flake";
   };
 
-  outputs = {
-    nixpkgs,
-    home-manager,
-    catppuccin,
-    stylix,
-    ...
-  } @ inputs: let
-    system = "x86_64-linux";
-    pkgs = nixpkgs.legacyPackages.${system};
-  in {
-    homeConfigurations.ruanb = home-manager.lib.homeManagerConfiguration {
-      inherit pkgs;
-      modules = [
-        ./ruanb/home.nix
-        (import inputs.stylix).homeManagerModules.stylix
-      ];
-      extraSpecialArgs = {
-        inherit inputs;
+  outputs =
+    { nixpkgs
+    , home-manager
+    , catppuccin
+    , stylix
+    , ...
+    } @ inputs:
+    let
+      system = "x86_64-linux";
+      pkgs = nixpkgs.legacyPackages.${system};
+    in
+    {
+      homeConfigurations.ruanb = home-manager.lib.homeManagerConfiguration {
+        inherit pkgs;
+        modules = [
+          ./ruanb/home.nix
+          (import inputs.stylix).homeManagerModules.stylix
+        ];
+        extraSpecialArgs = {
+          inherit inputs;
+        };
+      };
+      nixosConfigurations.nixos = nixpkgs.lib.nixosSystem {
+        specialArgs = {
+          inherit system;
+          inherit inputs;
+        };
+        modules = [
+          ./system/configuration.nix
+          (import inputs.stylix).nixosModules.stylix
+        ];
       };
     };
-    nixosConfigurations.nixos = nixpkgs.lib.nixosSystem {
-      specialArgs = {
-        inherit system;
-        inherit inputs;
-      };
-      modules = [
-        ./system/configuration.nix
-        (import inputs.stylix).nixosModules.stylix
-      ];
-    };
-  };
 }
