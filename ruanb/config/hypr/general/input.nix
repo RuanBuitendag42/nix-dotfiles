@@ -1,4 +1,3 @@
-{ config, pkgs, ... }:
 {
   wayland.windowManager.hyprland.settings = {
     input = {
@@ -15,6 +14,9 @@
       touchpad = {
         natural_scroll = false;
       };
+
+      repeat_delay = 200;
+      repeat_rate = 50;
     };
 
     gestures = {
