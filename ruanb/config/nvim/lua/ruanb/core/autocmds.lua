@@ -1,12 +1,12 @@
--- Autocommand to resize the Copilot Chat window on VimResized event
+-- Autocommand to resize the Copilot Chat buffer on VimResized event
+-- This should only tager the Copilot Chat buffer and should be relative to it's current size
 vim.api.nvim_create_autocmd("VimResized", {
+	pattern = "*",
 	callback = function()
-		-- Get the window ID of the Copilot Chat window
-		local win_id = vim.fn.win_getid()
-		-- Check if the window ID is valid
-		if vim.api.nvim_win_is_valid(win_id) then
-			-- Set the width of the Copilot Chat window to 30% of the total window width
-			vim.api.nvim_win_set_width(win_id, math.floor(vim.o.columns * 0.7))
+		if vim.b.copilot_chat then
+			vim.cmd("resize " .. vim.b.copilot_chat)
 		end
 	end,
+	group = vim.api.nvim_create_augroup("resize_copilot_chat", { clear = true }),
+	nested = true,
 })

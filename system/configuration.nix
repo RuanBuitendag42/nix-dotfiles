@@ -119,6 +119,7 @@
     cage
     gparted
     nodejs
+    cmake
 
     gh
   ];
