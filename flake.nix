@@ -12,7 +12,7 @@
       url = "github:danth/stylix";
       flake = false;
     };
-    zen-browser.url = "github:MarceColl/zen-browser-flake";
+    zen-browser.url = "github:RuanBuitendag42/zen-browser-flake";
   };
 
   outputs =

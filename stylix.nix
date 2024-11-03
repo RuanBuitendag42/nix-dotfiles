@@ -1,5 +1,4 @@
-{pkgs, ...}: 
-{
+{ pkgs, ... }: {
   stylix = {
     enable = true;
 
@@ -15,7 +14,7 @@
 
     fonts = {
       monospace = {
-        package = pkgs.nerdfonts.override {fonts = ["FiraCode"];};
+        package = pkgs.nerdfonts.override { fonts = [ "FiraCode" ]; };
         name = "FiraCode Nerd Font Mono";
       };
       sansSerif = {
@@ -29,7 +28,7 @@
 
       sizes = {
         applications = 11;
-        terminal = 11;
+        terminal = 10;
         desktop = 10;
         popups = 10;
       };

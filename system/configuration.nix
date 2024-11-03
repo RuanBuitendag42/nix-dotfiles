@@ -1,4 +1,4 @@
-{pkgs, ...}: {
+{ pkgs, ... }: {
   imports = [
     ./hardware-configuration.nix
     ./fhs.nix
@@ -42,6 +42,12 @@
       pulse.enable = true;
       # jack.enable = true; # Only enable if audio recording software is used
     };
+
+    # displayManager.sddm = {
+    #   enable = true;
+    #   wayland.enable = true;
+    #   defaultSession = "Hyprland";
+    # };
   };
 
   ### GTK Portals ###
@@ -63,8 +69,18 @@
   security.polkit.enable = true;
   hardware.graphics.enable = true;
 
+  services.greetd = {
+    enable = true;
+    settings = {
+      default_session = {
+        command = "${pkgs.greetd.tuigreet}/bin/tuigreet --greeting 'Welcome to NixOS!' --asterisks --remember --remember-user-session --time --cmd Hyprland";
+        user = "greeter";
+      };
+    };
+  };
+
   # I use zsh btw
-  environment.shells = with pkgs; [zsh];
+  environment.shells = with pkgs; [ zsh ];
   programs.zsh.enable = true;
 
   #### USER CONFIG FROM HERE ###
@@ -72,7 +88,7 @@
     users.ruanb = {
       isNormalUser = true;
       description = "Ruan Buitendag";
-      extraGroups = ["networkmanager" "wheel" "adbusers" "docker" "plugdev" "audio" "video" "sound"];
+      extraGroups = [ "networkmanager" "wheel" "adbusers" "docker" "plugdev" "audio" "video" "sound" ];
     };
     defaultUserShell = pkgs.zsh;
   };
@@ -145,7 +161,7 @@
 
   nix = {
     settings = {
-      experimental-features = ["nix-command" "flakes"];
+      experimental-features = [ "nix-command" "flakes" ];
     };
   };
 }
