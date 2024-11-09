@@ -5,6 +5,7 @@
   # ];
   programs.waybar = {
     enable = true;
+    style = ./tmp/style.css;
   };
   home.file = {
     ".config/waybar/" = {
