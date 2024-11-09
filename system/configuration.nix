@@ -1,4 +1,9 @@
-{ pkgs, ... }: {
+{ pkgs, ... }:
+let
+  sddm-candy = pkgs.callPackage ./sources/sddm-candy.nix { };
+  sddm-corners = pkgs.callPackage ./sources/sddm-corners.nix { };
+in
+{
   imports = [
     ./hardware-configuration.nix
     ./fhs.nix
@@ -16,7 +21,7 @@
 
     plymouth = {
       enable = true;
-      # theme = "nixos-bgrt";
+      theme = "nixos-bgrt";
       themePackages = with pkgs; [
         # By default we would install all themes
         (adi1090x-plymouth-themes.override {
@@ -73,11 +78,38 @@
       # jack.enable = true; # Only enable if audio recording software is used
     };
 
-    # displayManager.sddm = {
-    #   enable = true;
-    #   wayland.enable = true;
-    #   defaultSession = "Hyprland";
-    # };
+    displayManager = {
+      sddm = {
+        enable = true;
+        wayland = {
+          enable = true;
+          compositor = "kwin";
+        };
+        package = pkgs.libsForQt5.sddm;
+        extraPackages = with pkgs; [
+          sddm-candy
+          sddm-corners
+          libsForQt5.qt5.qtquickcontrols # for sddm theme ui elements
+          libsForQt5.layer-shell-qt # for sddm theme wayland support
+          libsForQt5.qt5.qtquickcontrols2 # for sddm theme ui elements
+          libsForQt5.qt5.qtgraphicaleffects # for sddm theme effects
+          libsForQt5.qtsvg # for sddm theme svg icons
+          libsForQt5.qt5.qtwayland # wayland support for qt5
+        ];
+        theme = "Candy";
+        settings = {
+          General = {
+            GreeterEnvironment = "QT_WAYLAND_SHELL_INTEGRATION=layer-shell";
+          };
+          Theme = {
+            ThemeDir = "/run/current-system/sw/share/sddm/themes";
+            CursorTheme = "Bibata-Modern-Ice";
+          };
+        };
+      };
+      sessionPackages = [ pkgs.hyprland ];
+    };
+    upower.enable = true;
   };
 
   ### GTK Portals ###
@@ -99,15 +131,15 @@
   security.polkit.enable = true;
   hardware.graphics.enable = true;
 
-  services.greetd = {
-    enable = true;
-    settings = {
-      default_session = {
-        command = "${pkgs.greetd.tuigreet}/bin/tuigreet --greeting 'Welcome to NixOS!' --asterisks --remember --remember-user-session --time --cmd Hyprland";
-        user = "greeter";
-      };
-    };
-  };
+  # services.greetd = {
+  #   enable = true;
+  #   settings = {
+  #     default_session = {
+  #       command = "${pkgs.greetd.tuigreet}/bin/tuigreet --greeting 'Welcome to NixOS!' --asterisks --remember --remember-user-session --time --cmd Hyprland";
+  #       user = "greeter";
+  #     };
+  #   };
+  # };
 
   # I use zsh btw
   environment.shells = with pkgs; [ zsh ];
@@ -152,6 +184,16 @@
     cmake
 
     gh
+
+    ### SDDM ###
+    sddm-candy
+    sddm-corners
+    libsForQt5.qt5.qtquickcontrols # for sddm theme ui elements
+    libsForQt5.layer-shell-qt # for sddm theme wayland support
+    libsForQt5.qt5.qtquickcontrols2 # for sddm theme ui elements
+    libsForQt5.qt5.qtgraphicaleffects # for sddm theme effects
+    libsForQt5.qtsvg # for sddm theme svg icons
+    libsForQt5.qt5.qtwayland # wayland support for qt5
   ];
 
   programs = {

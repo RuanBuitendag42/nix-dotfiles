@@ -1,7 +1,7 @@
 { pkgs, ... }: {
   stylix = {
     targets = {
-      plymouth.disable = true;
+      plymouth.enable = false;
     };
   };
 }
